@@ -1,6 +1,7 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
     using Malimbe.MemberChangeMethod;
+    using Malimbe.MemberClearanceMethod;
     using Malimbe.PropertySerializationAttribute;
     using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
@@ -16,13 +17,13 @@
         /// <summary>
         /// The <see cref="BooleanAction"/> that represents the negative direction of the Axis.
         /// </summary>
-        [Serialized]
+        [Serialized, Cleared]
         [field: Header("Axis Settings"), DocumentedByXml]
         public BooleanAction NegativeInput { get; set; }
         /// <summary>
         /// The <see cref="BooleanAction"/> that represents the positive direction of the Axis.
         /// </summary>
-        [Serialized]
+        [Serialized, Cleared]
         [field: DocumentedByXml]
         public BooleanAction PositiveInput { get; set; }
         #endregion
@@ -56,7 +57,7 @@
         /// Called after <see cref="NegativeInput"/> has been changed.
         /// </summary>
         [CalledAfterChangeOf(nameof(NegativeInput))]
-        protected virtual void OnAfteNegativeInputChange()
+        protected virtual void OnAfterNegativeInputChange()
         {
             Configuration.SetNegativeInputSource(NegativeInput);
         }

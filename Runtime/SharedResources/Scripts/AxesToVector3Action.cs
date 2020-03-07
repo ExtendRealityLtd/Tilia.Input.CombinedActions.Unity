@@ -1,6 +1,7 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
     using Malimbe.MemberChangeMethod;
+    using Malimbe.MemberClearanceMethod;
     using Malimbe.PropertySerializationAttribute;
     using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
@@ -39,19 +40,19 @@
         /// The <see cref="FloatAction"/> representing the Lateral (X Axis)[left/right].
         /// </summary>
         [Serialized]
-        [field: DocumentedByXml]
+        [field: DocumentedByXml, Cleared]
         public FloatAction LateralAxis { get; set; }
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Vertical (Y Axis)[up/down].
         /// </summary>
         [Serialized]
-        [field: DocumentedByXml]
+        [field: DocumentedByXml, Cleared]
         public FloatAction VerticalAxis { get; set; }
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Longitudinal (Z Axis)[forward/backward].
         /// </summary>
         [Serialized]
-        [field: DocumentedByXml]
+        [field: DocumentedByXml, Cleared]
         public FloatAction LongitudinalAxis { get; set; }
         /// <summary>
         /// Multiply the output values.

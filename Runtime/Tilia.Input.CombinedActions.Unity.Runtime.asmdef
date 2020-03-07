@@ -11,7 +11,8 @@
     "precompiledReferences": [
         "Malimbe.XmlDocumentationAttribute.dll",
         "Malimbe.PropertySerializationAttribute.dll",
-        "Malimbe.MemberChangeMethod.dll"
+        "Malimbe.MemberChangeMethod.dll",
+        "Malimbe.MemberClearanceMethod.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []
