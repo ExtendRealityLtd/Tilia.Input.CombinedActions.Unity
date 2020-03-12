@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.1.0...v1.2.0) (2020-03-12)
+
+#### Features
+
+* **HowToGuides:** using combined actions ([a715563](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/a71556335174acecf20d0d67621aec61d0ff4d3b))
+  > added guide for showing how to use combined actions.
+
 ## [1.1.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.0.1...v1.1.0) (2020-03-07)
 
 #### Features
