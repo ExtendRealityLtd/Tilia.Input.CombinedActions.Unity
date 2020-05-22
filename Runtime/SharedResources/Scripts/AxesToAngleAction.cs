@@ -24,6 +24,12 @@
         [Serialized, Cleared]
         [field: DocumentedByXml]
         public FloatAction VerticalAxis { get; set; }
+        /// <summary>
+        /// An optional <see cref="GameObject"/> to be used as the direction offset for the output axis angle.
+        /// </summary>
+        [Serialized, Cleared]
+        [field: DocumentedByXml]
+        public GameObject DirectionOffset { get; set; }
         #endregion
 
         #region Deadzone Settings
@@ -57,6 +63,7 @@
             Configuration.SetVerticalInputSource(VerticalAxis);
             Configuration.SetHorizontalDeadzone(HorizontalDeadzone);
             Configuration.SetVerticalDeadzone(VerticalDeadzone);
+            Configuration.SetDirectionExtractorSource(DirectionOffset);
         }
 
         /// <summary>
@@ -93,6 +100,15 @@
         protected virtual void OnAfterVerticalDeadzoneChange()
         {
             Configuration.SetVerticalDeadzone(VerticalDeadzone);
+        }
+
+        /// <summary>
+        /// Called after <see cref="DirectionOffset"/> has been changed.
+        /// </summary>
+        [CalledAfterChangeOf(nameof(DirectionOffset))]
+        protected virtual void OnAfterDirectionOffsetChange()
+        {
+            Configuration.SetDirectionExtractorSource(DirectionOffset);
         }
     }
 }

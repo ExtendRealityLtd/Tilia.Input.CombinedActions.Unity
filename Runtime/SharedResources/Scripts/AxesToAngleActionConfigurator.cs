@@ -5,6 +5,7 @@
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
+    using Zinnia.Data.Operation.Extraction;
     using Zinnia.Data.Type;
     using Zinnia.Data.Type.Transformation.Conversion;
 
@@ -38,6 +39,12 @@
         [Serialized]
         [field: DocumentedByXml, Restricted]
         public FloatToBoolean VerticalDeadZone { get; set; }
+        /// <summary>
+        /// The direction extractor for the direction offset.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml, Restricted]
+        public TransformDirectionExtractor DirectionExtractor { get; set; }
         #endregion
 
         /// <summary>
@@ -74,6 +81,16 @@
         public virtual void SetVerticalDeadzone(FloatRange source)
         {
             SetDeadzone(source, VerticalDeadZone);
+        }
+
+        /// <summary>
+        /// Sets the source of the direction extractor.
+        /// </summary>
+        /// <param name="source">The <see cref="GameObject"/> for the source.</param>
+        public virtual void SetDirectionExtractorSource(GameObject source)
+        {
+            DirectionExtractor.Source = source;
+            DirectionExtractor.gameObject.SetActive(source != null);
         }
 
         /// <summary>
