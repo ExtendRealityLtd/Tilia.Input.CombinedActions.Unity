@@ -9,8 +9,20 @@
     using Zinnia.Data.Attribute;
     using Zinnia.Data.Type;
 
-    public class AxesToAngleAction : FloatAction
+    /// <summary>
+    /// The public interface into the AngleRangeToBoolean Prefab.
+    /// </summary>
+    public class AngleRangeToBooleanFacade : MonoBehaviour
     {
+        #region Angle Settings
+        /// <summary>
+        /// The range of the angle to consider true.
+        /// </summary>
+        [Serialized]
+        [field: Header("Target Settings"), DocumentedByXml, MinMaxRange(-180f, 180f)]
+        public FloatRange AngleRange { get; set; } = new FloatRange(-180f, 180f);
+        #endregion
+
         #region Axis Settings
         /// <summary>
         /// The <see cref="FloatAction"/> that represents the Horizontal Axis.
@@ -24,12 +36,6 @@
         [Serialized, Cleared]
         [field: DocumentedByXml]
         public FloatAction VerticalAxis { get; set; }
-        /// <summary>
-        /// An optional <see cref="GameObject"/> to be used as the direction offset for the output axis angle.
-        /// </summary>
-        [Serialized, Cleared]
-        [field: DocumentedByXml]
-        public GameObject DirectionOffset { get; set; }
         #endregion
 
         #region Deadzone Settings
@@ -53,17 +59,16 @@
         /// </summary>
         [Serialized]
         [field: Header("Reference Settings"), DocumentedByXml, Restricted]
-        public AxesToAngleActionConfigurator Configuration { get; protected set; }
+        public AngleRangeToBooleanConfigurator Configuration { get; protected set; }
         #endregion
 
-        protected override void OnEnable()
+        /// <summary>
+        /// Called after <see cref="AngleRange"/> has been changed.
+        /// </summary>
+        [CalledAfterChangeOf(nameof(AngleRange))]
+        protected virtual void OnAfterAngleRangeChange()
         {
-            base.OnEnable();
-            Configuration.SetHorizontalInputSource(HorizontalAxis);
-            Configuration.SetVerticalInputSource(VerticalAxis);
-            Configuration.SetHorizontalDeadzone(HorizontalDeadzone);
-            Configuration.SetVerticalDeadzone(VerticalDeadzone);
-            Configuration.SetDirectionExtractorSource(DirectionOffset);
+            Configuration.ConfigureAngleChecker();
         }
 
         /// <summary>
@@ -72,7 +77,7 @@
         [CalledAfterChangeOf(nameof(HorizontalAxis))]
         protected virtual void OnAfterHorizontalAxisChange()
         {
-            Configuration.SetHorizontalInputSource(HorizontalAxis);
+            Configuration.ConfigureAngleInput();
         }
 
         /// <summary>
@@ -81,7 +86,7 @@
         [CalledAfterChangeOf(nameof(VerticalAxis))]
         protected virtual void OnAfterVerticalAxisChange()
         {
-            Configuration.SetVerticalInputSource(VerticalAxis);
+            Configuration.ConfigureAngleInput();
         }
 
         /// <summary>
@@ -90,7 +95,7 @@
         [CalledAfterChangeOf(nameof(HorizontalDeadzone))]
         protected virtual void OnAfterHorizontalDeadzoneChange()
         {
-            Configuration.SetHorizontalDeadzone(HorizontalDeadzone);
+            Configuration.ConfigureAngleInput();
         }
 
         /// <summary>
@@ -99,16 +104,7 @@
         [CalledAfterChangeOf(nameof(VerticalDeadzone))]
         protected virtual void OnAfterVerticalDeadzoneChange()
         {
-            Configuration.SetVerticalDeadzone(VerticalDeadzone);
-        }
-
-        /// <summary>
-        /// Called after <see cref="DirectionOffset"/> has been changed.
-        /// </summary>
-        [CalledAfterChangeOf(nameof(DirectionOffset))]
-        protected virtual void OnAfterDirectionOffsetChange()
-        {
-            Configuration.SetDirectionExtractorSource(DirectionOffset);
+            Configuration.ConfigureAngleInput();
         }
     }
 }
