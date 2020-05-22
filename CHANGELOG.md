@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.2.4...v1.3.0) (2020-05-22)
+
+#### Features
+
+* **Action:** convert angle range to boolean ([eac0167](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/eac016782567ad3ee9d021a78d4d2982bce23260))
+  > The AngleRangeToBoolean prefab utilizes an AxesToAngleAction to convert a axis data to an angle and then to determine if that angle is within the angle range and setting a boolean action appropriately.
+  > 
+  > There are two output boolean actions included with the prefab:
+  > 
+  > * `DeactivateOutsideOfAngleRange` - will deactivate the boolean when the current angle is no longer in the set range. * `DeactivateWithinAxisDeadzone` - the action will activate when the angle is within the set range but will not deactivate when the angle is no longer in the set range and will only deactivate when the axis falls back within the deadzone.
+* **AxesToAngleAction:** provide direction offset ([56db138](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/56db13894e2c8d7c2f213a4081a61086fcd3af2a))
+  > The Direction Offset property allows a GameObject to be provided that will be used to set the origin on the Vector2ToAngle component to ensure the angle is offset based on the direction of the offset.
+
 ### [1.2.4](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.2.3...v1.2.4) (2020-05-22)
 
 #### Miscellaneous Chores
