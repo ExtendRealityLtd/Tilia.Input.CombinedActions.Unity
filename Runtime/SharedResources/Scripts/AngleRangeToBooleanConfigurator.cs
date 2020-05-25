@@ -52,6 +52,7 @@
             AngleInput.VerticalAxis = Facade.VerticalAxis;
             AngleInput.HorizontalDeadzone = Facade.HorizontalDeadzone;
             AngleInput.VerticalDeadzone = Facade.VerticalDeadzone;
+            AngleInput.Configuration.AngleConverter.Unit = Facade.UnitType;
         }
 
         protected virtual void OnEnable()

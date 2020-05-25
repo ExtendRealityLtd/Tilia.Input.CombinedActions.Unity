@@ -8,6 +8,7 @@
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
     using Zinnia.Data.Type;
+    using Zinnia.Data.Type.Transformation.Conversion;
 
     /// <summary>
     /// The public interface into the AngleRangeToBoolean Prefab.
@@ -19,8 +20,14 @@
         /// The range of the angle to consider true.
         /// </summary>
         [Serialized]
-        [field: Header("Target Settings"), DocumentedByXml, MinMaxRange(-180f, 180f)]
+        [field: Header("Angle Settings"), DocumentedByXml, MinMaxRange(-360f, 360f)]
         public FloatRange AngleRange { get; set; } = new FloatRange(-180f, 180f);
+        /// <summary>
+        /// The units in which to determine the angle range in.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml]
+        public Vector2ToAngle.AngleUnit UnitType { get; set; } = Vector2ToAngle.AngleUnit.SignedDegrees;
         #endregion
 
         #region Axis Settings
@@ -69,6 +76,15 @@
         protected virtual void OnAfterAngleRangeChange()
         {
             Configuration.ConfigureAngleChecker();
+        }
+
+        /// <summary>
+        /// Called after <see cref="UnitType"/> has been changed.
+        /// </summary>
+        [CalledAfterChangeOf(nameof(UnitType))]
+        protected virtual void OnAfterUnitTypeChange()
+        {
+            Configuration.ConfigureAngleInput();
         }
 
         /// <summary>
