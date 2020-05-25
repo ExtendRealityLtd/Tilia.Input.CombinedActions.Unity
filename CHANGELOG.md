@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.4.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.3.1...v1.4.0) (2020-05-25)
+
+#### Features
+
+* **AngleRangeToBoolean:** add change angle unit and higher angle range ([0e7e1bc](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/0e7e1bc65500387985b10345908a7d493c73077c))
+  > The angle unit can now be changed via the inspector and the angle range can extend between -360f and 360f to ensure all angle unit types can be catered for.
+  > 
+  > This now makes it possible to get a downward angle, which would be in degrees (or radians) at 170 degrees <--> 200 degress, whereas this isn't possible with signed units as -180 degress is the far left and 180 is the far right, but there is no simple way of knowing the down without using the unsigned unit type.
+* **AxisToAngle:** include Vector2ToAngle component in configuration ([38c82d8](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/38c82d8df27a4d6a466399ff2ac6c49eba7b7d58))
+  > Adding the Vector2ToAngle angle converter to the configuration makes it easier to access this component externally.
+
 ### [1.3.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.3.0...v1.3.1) (2020-05-22)
 
 #### Miscellaneous Chores
