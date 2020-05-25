@@ -45,6 +45,12 @@
         [Serialized]
         [field: DocumentedByXml, Restricted]
         public TransformDirectionExtractor DirectionExtractor { get; set; }
+        /// <summary>
+        /// The vector2 to angle converter.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml, Restricted]
+        public Vector2ToAngle AngleConverter { get; set; }
         #endregion
 
         /// <summary>

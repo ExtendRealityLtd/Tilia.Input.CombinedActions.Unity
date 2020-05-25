@@ -603,6 +603,7 @@ MonoBehaviour:
   horizontalDeadZone: {fileID: 1057589322222972757}
   verticalDeadZone: {fileID: 1057589323296156283}
   directionExtractor: {fileID: 5476064670665698178}
+  angleConverter: {fileID: 1057589323414562885}
 --- !u!1 &1057589323253153173
 GameObject:
   m_ObjectHideFlags: 0
