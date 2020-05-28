@@ -39,20 +39,20 @@
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Lateral (X Axis)[left/right].
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Cleared]
+        [Serialized, Cleared]
+        [field: DocumentedByXml]
         public FloatAction LateralAxis { get; set; }
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Vertical (Y Axis)[up/down].
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Cleared]
+        [Serialized, Cleared]
+        [field: DocumentedByXml]
         public FloatAction VerticalAxis { get; set; }
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Longitudinal (Z Axis)[forward/backward].
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Cleared]
+        [Serialized, Cleared]
+        [field: DocumentedByXml]
         public FloatAction LongitudinalAxis { get; set; }
         /// <summary>
         /// Multiply the output values.
