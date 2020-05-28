@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.4.0...v1.4.1) (2020-05-28)
+
+#### Bug Fixes
+
+* **Action:** move cleared attribute to correct location ([c443031](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/c44303152d253b053167c893c474c701f744a320))
+  > The Cleared attribute was in the field location and therefore was not creating the correct Clear method for the property and instead was creating it for the backing field.
+
 ## [1.4.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.3.1...v1.4.0) (2020-05-25)
 
 #### Features
