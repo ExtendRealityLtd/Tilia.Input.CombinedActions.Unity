@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.4.2](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.4.1...v1.4.2) (2020-05-31)
+
+#### Miscellaneous Chores
+
+* **deps:** bump io.extendreality.zinnia.unity from 1.17.1 to 1.18.0 ([7cc3546](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/7cc354602408f62aa25c8831579963ad0200dc40))
+  > Bumps [io.extendreality.zinnia.unity](https://github.com/ExtendRealityLtd/Zinnia.Unity) from 1.17.1 to 1.18.0. - [Release notes](https://github.com/ExtendRealityLtd/Zinnia.Unity/releases) - [Changelog](https://github.com/ExtendRealityLtd/Zinnia.Unity/blob/master/CHANGELOG.md) - [Commits](https://github.com/ExtendRealityLtd/Zinnia.Unity/compare/v1.17.1...v1.18.0)
+  > 
+  > Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
 ### [1.4.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.4.0...v1.4.1) (2020-05-28)
 
 #### Bug Fixes
