@@ -21,10 +21,7 @@ We can then take this sort of axis data and convert it into movement information
 
 ### Step 1
 
-Create a new `Capsule` Unity 3D Object by selecting `Main Menu -> GameObject -> 3D Object -> Capsule` and change the Transform properties to:
-
-* Position: `X = 0, Y = 0, Z = 0`
-* Scale: `X = 1, Y = 1, Z = 1`
+Create a new `Capsule` Unity 3D Object by selecting `Main Menu -> GameObject -> 3D Object -> Capsule`:
 
 ![Create Capsule](assets/images/CreateCapsule.png)
 
@@ -41,7 +38,7 @@ Expand the `Tilia Input UnityInputManager Unity` Package directory in the Unity 
 
 ![Import Unity Input Manager](assets/images/ImportUnityInputManager.png)
 
-Set the `Key Code` parameter in the `Unity Input Manager Button Action` component to `W`.
+Set the `Key Code` property in the `Unity Input Manager Button Action` component to `W`.
 
 > To make it easier you could rename `Input.UnityInputManager.ButtonAction` GameObject to `Input.UnityInputManager.ButtonAction W` as we will have 4 different total button actions.
 
@@ -63,7 +60,7 @@ Rename the newly created `Input.CombinedActions.BooleanTo1DAxisAction` GameObjec
 
 ### Step 4
 
-In the Axis Settings on the `Boolean To 1DAxis Action` component of the `Boolean To 1DAxis Action Horizontal` GameObject, drag and drop the `Input.UnityInputManager.ButtonAction A` GameObject into the `Negative Input` parameter and drag and drop the `Input.UnityInputManager.ButtonAction D` GameObject into the `Positive Input` parameter.
+In the Axis Settings on the `Boolean To 1DAxis Action` component of the `Boolean To 1DAxis Action Horizontal` GameObject, drag and drop the `Input.UnityInputManager.ButtonAction A` GameObject into the `Negative Input` property and drag and drop the `Input.UnityInputManager.ButtonAction D` GameObject into the `Positive Input` property.
 
 ![Drag And Drop Into Horizontal Positive And Negative Parameters](assets/images/DragAndDropIntoHorizontalPositiveAndNegativeParameters.png)
 
@@ -73,19 +70,23 @@ Drag and drop another `Input.CombinedActions.BooleanTo1DAxisAction` prefab into 
 
 ![RenameToVertical](assets/images/RenameToVertical.png)
 
-In the Axis Settings on the `Boolean To 1DAxis Action` component of the `Boolean To 1DAxis Action Vertical` GameObject, drag and drop the `Input.UnityInputManager.ButtonAction S` GameObject into the `Negative Input` parameter and drag and drop the `Input.UnityInputManager.ButtonAction W` GameObject into the `Positive Input` parameter.
+In the Axis Settings on the `Boolean To 1DAxis Action` component of the `Boolean To 1DAxis Action Vertical` GameObject, drag and drop the `Input.UnityInputManager.ButtonAction S` GameObject into the `Negative Input` property and drag and drop the `Input.UnityInputManager.ButtonAction W` GameObject into the `Positive Input` property.
 
 ![Drag And Drop Into Positive And Negative Parameters](assets/images/DragAndDropIntoVerticalPositiveAndNegativeParameters.png)
 
 ### Step 6
 
-Create a new `Empty` Unity Object by selecting `Main Menu -> GameObject -> Create Empty` and rename it to `Movement`. Click `Add Component` and add a `Transform Position Mutator` component.
+Create a new `Empty` Unity Object by selecting `Main Menu -> GameObject -> Create Empty` and rename it to `Movement`.
+
+Click the `Add Component` button, then select `Transform Position Mutator` component.
+
+This newly created `Transform Position Mutator` will be used to change the position of our `Capsule` based on our axis input.
 
 ![Add Position Mutator](assets/images/AddPositionMutator.png)
 
 ### Step 7
 
-Drag and drop the `Capsule` GameObject into the `Target` parameter on the `Transform Position Mutator` component.
+Drag and drop the `Capsule` GameObject into the `Target` property on the `Transform Position Mutator` component.
 
 ![Drag And Drop Capsule](assets/images/DragAndDropCapsule.png)
 
@@ -123,25 +124,33 @@ Select a function to perform when the `Value Changed` event is emitted. For this
 
 ### Step 11
 
-We are now going to make it possible to rotate the capsule instead. 
+We are now going to make it possible to rotate the capsule instead.
 
-Disable the `Movement` GameObject.
+Disable the `Movement` GameObject so our previously implemented movement functionality doesn't operate.
 
 ![Disable Movement GameObject](assets/images/DisableMovementGameObject.png)
 
 ### Step 12
 
-Create a new `Empty` Unity Object by selecting `Main Menu -> GameObject -> Create Empty` and rename it `Rotation`. Click `Add Component` and add a `Float To Vector3` component.
+Create a new `Empty` Unity Object by selecting `Main Menu -> GameObject -> Create Empty` and rename it `Rotation`.
+
+Click the `Add Component` button, then select `Float To Vector3` component.
+
+This newly created `Float To Vector3` component will be used to pass a rotation angle in the form of a Euler angle to rotate our `Capsule`.
 
 ![Add Float To Vector3](assets/images/AddFloatToVector3.png)
 
-Click `Add Component` again and add a `Transform Euler Rotation Mutator` component.
+Click the `Add Component` button again, then select `Transform Euler Rotation Mutator` component.
+
+This newly created `Transform Euler Rotation Mutator` component rotate our `Capsule` based on the rotation angle passed in from the `Float To Vector3` component.
 
 ![Add Euler Rotator](assets/images/AddEulerRotator.png)
 
 ### Step 13
 
-Drag and drop the `Capsule` GameObject into the `Target` parameter on the `Transform Euler Rotation Mutator` component. On the `Mutate on Axis` property turn off the `X` and `Z`  checkboxes.
+Drag and drop the `Capsule` GameObject into the `Target` property on the `Transform Euler Rotation Mutator` component.
+
+Also, change the `Mutate on Axis` property and untick the `X` and `Z` checkboxes.
 
 > The reason we only want the Y axis turned on is because we only want to rotate around this axis to make our capsule rotate to a new facing direction in the scene.
 
