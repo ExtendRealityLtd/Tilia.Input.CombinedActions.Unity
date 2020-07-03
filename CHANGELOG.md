@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.4.3...v1.5.0) (2020-07-03)
+
+#### Features
+
+* **API:** add auto-generated API documentation ([493b92f](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/493b92f7a59a9e61539ee8c35051098b1c19ca52))
+  > The API documentation is auto generated with docfx and converted to markdown via turndown in a custom nodejs script.
+
+#### Bug Fixes
+
+* **package.json:** add docfx.json file ([9192b23](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/9192b23547089796a62cb7db8feb243955da6bae))
+  > The docfx.json file was missing from the package.json causing the build process to fail. It has now been added.
+
 ### [1.4.3](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.4.2...v1.4.3) (2020-06-08)
 
 #### Miscellaneous Chores
