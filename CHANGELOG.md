@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.5.0...v1.5.1) (2020-07-03)
+
+#### Bug Fixes
+
+* **HowToGuides:** apply document style guidelines ([344921c](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/344921cb1e3ddc262d4e16a7bfb335baabeaa33b))
+  > The document style guidelines have been applied to clean up the how to guide for this repo.
+
 ## [1.5.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.4.3...v1.5.0) (2020-07-03)
 
 #### Features
