@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.6.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.6.0...v1.6.1) (2020-07-04)
+
+#### Bug Fixes
+
+* **HowToGuides:** provide correct releases links in installation ([d60a091](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/d60a091aff535c66ca1f87e035c3dbf276ed06fc))
+  > The Installation How To Guide now has the correct links to the releases and latest releases path.
+
 ## [1.6.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.5.1...v1.6.0) (2020-07-04)
 
 #### Features
