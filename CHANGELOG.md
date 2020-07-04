@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.6.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.5.1...v1.6.0) (2020-07-04)
+
+#### Features
+
+* **Prefabs:** expose time multiplier on AxesToVector3Action ([abcbdba](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/abcbdba4871451a8d94e43f9e6dafbc3ce131027))
+  > The AxesToVector3Action had a nested internal TimeComponentExtractor that was used to extract a Time value to multiply the axis data by.
+  > 
+  > This has now been exposed on the Facade to make it easier to change and the HowToGuide has been updated to show this needs setting to Delta Time when doing axis movement.
+
 ### [1.5.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.5.0...v1.5.1) (2020-07-03)
 
 #### Bug Fixes
