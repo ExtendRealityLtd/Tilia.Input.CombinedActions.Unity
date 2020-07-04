@@ -15,6 +15,7 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
   * [LongitudinalAxis]
   * [LongitudinalDeadzone]
   * [Multiplier]
+  * [TimeMultiplier]
   * [VerticalAxis]
   * [VerticalDeadzone]
 * [Methods]
@@ -24,6 +25,7 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
   * [OnAfterLongitudinalAxisChange()]
   * [OnAfterLongitudinalDeadzoneChange()]
   * [OnAfterMultiplierChange()]
+  * [OnAfterTimeMultiplierChange()]
   * [OnAfterVerticalAxisChange()]
   * [OnAfterVerticalDeadzoneChange()]
   * [OnEnable()]
@@ -120,6 +122,16 @@ Multiply the output values.
 public Vector3 Multiplier { get; set; }
 ```
 
+#### TimeMultiplier
+
+Multiply the output values by this Time component.
+
+##### Declaration
+
+```
+public TimeComponentExtractor.TimeComponent TimeMultiplier { get; set; }
+```
+
 #### VerticalAxis
 
 The FloatAction representing the Vertical (Y Axis)\[up/down\].
@@ -200,6 +212,16 @@ Called after [Multiplier] has been changed.
 
 ```
 protected virtual void OnAfterMultiplierChange()
+```
+
+#### OnAfterTimeMultiplierChange()
+
+Called after [TimeMultiplier] has been changed.
+
+##### Declaration
+
+```
+protected virtual void OnAfterTimeMultiplierChange()
 ```
 
 #### OnAfterVerticalAxisChange()
@@ -287,6 +309,7 @@ public virtual void SetMultiplierZ(float value)
 [LongitudinalAxis]: AxesToVector3Action.md#LongitudinalAxis
 [LongitudinalDeadzone]: AxesToVector3Action.md#LongitudinalDeadzone
 [Multiplier]: AxesToVector3Action.md#Multiplier
+[TimeMultiplier]: AxesToVector3Action.md#TimeMultiplier
 [VerticalAxis]: AxesToVector3Action.md#VerticalAxis
 [VerticalDeadzone]: AxesToVector3Action.md#VerticalDeadzone
 [Multiplier]: AxesToVector3Action.md#Multiplier
@@ -303,6 +326,7 @@ public virtual void SetMultiplierZ(float value)
 [LongitudinalAxis]: #LongitudinalAxis
 [LongitudinalDeadzone]: #LongitudinalDeadzone
 [Multiplier]: #Multiplier
+[TimeMultiplier]: #TimeMultiplier
 [VerticalAxis]: #VerticalAxis
 [VerticalDeadzone]: #VerticalDeadzone
 [Methods]: #Methods
@@ -312,6 +336,7 @@ public virtual void SetMultiplierZ(float value)
 [OnAfterLongitudinalAxisChange()]: #OnAfterLongitudinalAxisChange
 [OnAfterLongitudinalDeadzoneChange()]: #OnAfterLongitudinalDeadzoneChange
 [OnAfterMultiplierChange()]: #OnAfterMultiplierChange
+[OnAfterTimeMultiplierChange()]: #OnAfterTimeMultiplierChange
 [OnAfterVerticalAxisChange()]: #OnAfterVerticalAxisChange
 [OnAfterVerticalDeadzoneChange()]: #OnAfterVerticalDeadzoneChange
 [OnEnable()]: #OnEnable

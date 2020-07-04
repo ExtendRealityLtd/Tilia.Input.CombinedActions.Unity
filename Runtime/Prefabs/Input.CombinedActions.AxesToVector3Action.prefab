@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -359,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -597,6 +599,7 @@ MonoBehaviour:
   verticalAxis: {fileID: 0}
   longitudinalAxis: {fileID: 0}
   multiplier: {x: 1, y: 1, z: 1}
+  timeMultiplier: 0
   lateralDeadzone:
     minimum: -0.5
     maximum: 0.5
@@ -893,6 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -1167,6 +1171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -1585,6 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -1737,6 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -2004,6 +2011,7 @@ MonoBehaviour:
   longitudinalPositiveBounds: {fileID: 7143328719251557962}
   longitudinalNegativeBounds: {fileID: 7143328720637524565}
   longitudinalBoundsManager: {fileID: 7143328719539350193}
+  timeExtractor: {fileID: 7143328720995329176}
 --- !u!1 &7143328720317082720
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -3689,7 +3698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e270099e544da394b9c45f3dbe787018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  componentToExtract: 5
   Extracted:
     m_PersistentCalls:
       m_Calls:
@@ -3706,6 +3714,12 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Zinnia.Data.Operation.Extraction.TimeComponentExtractor+UnityEvent,
       Zinnia.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Failed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  source: 0
 --- !u!1 &7143328721012331561
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,6 +4215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8101dd1987ebdc642a5fd8eec1514789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: {x: 0, y: 0, z: 0}
   Emitted:
     m_PersistentCalls:
       m_Calls:

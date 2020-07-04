@@ -6,6 +6,7 @@
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
     using Zinnia.Data.Collection.List;
+    using Zinnia.Data.Operation.Extraction;
     using Zinnia.Data.Type;
     using Zinnia.Data.Type.Transformation.Conversion;
 
@@ -138,6 +139,12 @@
         [Serialized]
         [field: DocumentedByXml, Restricted]
         public FloatToBoolean LongitudinalBoundsManager { get; set; }
+        /// <summary>
+        /// Extracts a <see cref="Time"/> component.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml, Restricted]
+        public TimeComponentExtractor TimeExtractor { get; set; }
         #endregion
 
         /// <summary>
@@ -220,6 +227,15 @@
         public virtual void SetLongitudinalDeadzone(FloatRange deadzone)
         {
             SetBounds(deadzone, LongitudinalDeadZone, LongitudinalPositiveBounds, LongitudinalNegativeBounds, LongitudinalBoundsManager);
+        }
+
+        /// <summary>
+        /// Sets the <see cref="Time"/> source type to multiply by.
+        /// </summary>
+        /// <param name="component">The component to multiply by.</param>
+        public virtual void SetTimeMultiplier(TimeComponentExtractor.TimeComponent component)
+        {
+            TimeExtractor.Source = component;
         }
 
         /// <summary>
