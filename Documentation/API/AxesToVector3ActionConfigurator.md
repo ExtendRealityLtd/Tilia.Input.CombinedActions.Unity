@@ -23,6 +23,7 @@ Sets up the AxesToVector3Action prefab based on the provided user settings.
   * [LongitudinalNegativeBounds]
   * [LongitudinalPositiveBounds]
   * [Multiplier]
+  * [TimeExtractor]
   * [VerticalAction]
   * [VerticalBoundsManager]
   * [VerticalDeadZone]
@@ -37,6 +38,7 @@ Sets up the AxesToVector3Action prefab based on the provided user settings.
   * [SetLongitudinalAxisSource(FloatAction)]
   * [SetLongitudinalDeadzone(FloatRange)]
   * [SetMultiplier(Vector3)]
+  * [SetTimeMultiplier(TimeComponentExtractor.TimeComponent)]
   * [SetVerticalAxisSource(FloatAction)]
   * [SetVerticalDeadzone(FloatRange)]
 
@@ -207,6 +209,16 @@ The collection used to multiply the output Vector3.
 
 ```
 public Vector3ObservableList Multiplier { get; set; }
+```
+
+#### TimeExtractor
+
+Extracts a Time component.
+
+##### Declaration
+
+```
+public TimeComponentExtractor TimeExtractor { get; set; }
 ```
 
 #### VerticalAction
@@ -394,6 +406,22 @@ public virtual void SetMultiplier(Vector3 multiplier)
 | --- | --- | --- |
 | Vector3 | multiplier | The new multiplier to use. |
 
+#### SetTimeMultiplier(TimeComponentExtractor.TimeComponent)
+
+Sets the Time source type to multiply by.
+
+##### Declaration
+
+```
+public virtual void SetTimeMultiplier(TimeComponentExtractor.TimeComponent component)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| TimeComponentExtractor.TimeComponent | component | The component to multiply by. |
+
 #### SetVerticalAxisSource(FloatAction)
 
 Adds the given source to the [VerticalAction] Sources collection.
@@ -450,6 +478,7 @@ public virtual void SetVerticalDeadzone(FloatRange deadzone)
 [LongitudinalNegativeBounds]: #LongitudinalNegativeBounds
 [LongitudinalPositiveBounds]: #LongitudinalPositiveBounds
 [Multiplier]: #Multiplier
+[TimeExtractor]: #TimeExtractor
 [VerticalAction]: #VerticalAction
 [VerticalBoundsManager]: #VerticalBoundsManager
 [VerticalDeadZone]: #VerticalDeadZone
@@ -464,5 +493,6 @@ public virtual void SetVerticalDeadzone(FloatRange deadzone)
 [SetLongitudinalAxisSource(FloatAction)]: #SetLongitudinalAxisSourceFloatAction
 [SetLongitudinalDeadzone(FloatRange)]: #SetLongitudinalDeadzoneFloatRange
 [SetMultiplier(Vector3)]: #SetMultiplierVector3
+[SetTimeMultiplier(TimeComponentExtractor.TimeComponent)]: #SetTimeMultiplierTimeComponentExtractor.TimeComponent
 [SetVerticalAxisSource(FloatAction)]: #SetVerticalAxisSourceFloatAction
 [SetVerticalDeadzone(FloatRange)]: #SetVerticalDeadzoneFloatRange

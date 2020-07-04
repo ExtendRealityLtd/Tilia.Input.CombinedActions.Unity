@@ -106,6 +106,12 @@ Drag and drop the `Input.CombinedActions.BooleanTo1DAxisAction Vertical` GameObj
 
 ![Longitudinal Axis](assets/images/LongitudinalAxis.png)
 
+Change the `Time Multiplier` property to `Delta Time` on the `Axes To Vector3 Action` component.
+
+![Set Time Multiplier To Delta Time](assets/images/SetTimeMultiplierToDeltaTime.png)
+
+> We want this to be `Delta Time` as we only want to multiply our axis values based on the time since the last update frame only, otherwise our movement speed would be too fast.
+
 ### Step 10
 
 Select the `Input.CombinedActions.AxesToVector3Action` GameObject from the Unity Hierarchy and click the `+` symbol in the bottom right corner of the `Value Changed` event parameter on the `Axes To Vector3 Action` component.

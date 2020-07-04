@@ -7,6 +7,7 @@
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
+    using Zinnia.Data.Operation.Extraction;
     using Zinnia.Data.Type;
 
     /// <summary>
@@ -60,6 +61,12 @@
         [Serialized]
         [field: DocumentedByXml]
         public Vector3 Multiplier { get; set; } = Vector3.one;
+        /// <summary>
+        /// Multiply the output values by this <see cref="Time"/> component.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml]
+        public TimeComponentExtractor.TimeComponent TimeMultiplier { get; set; } = TimeComponentExtractor.TimeComponent.Time;
         #endregion
 
         #region Deadzone Settings
@@ -130,6 +137,7 @@
             Configuration.SetLateralDeadzone(LateralDeadzone);
             Configuration.SetVerticalDeadzone(VerticalDeadzone);
             Configuration.SetLongitudinalDeadzone(LongitudinalDeadzone);
+            Configuration.SetTimeMultiplier(TimeMultiplier);
         }
 
         /// <summary>
@@ -202,6 +210,15 @@
         protected virtual void OnAfterLongitudinalDeadzoneChange()
         {
             Configuration.SetLongitudinalDeadzone(LongitudinalDeadzone);
+        }
+
+        /// <summary>
+        /// Called after <see cref="TimeMultiplier"/> has been changed.
+        /// </summary>
+        [CalledAfterChangeOf(nameof(TimeMultiplier))]
+        protected virtual void OnAfterTimeMultiplierChange()
+        {
+            Configuration.SetTimeMultiplier(TimeMultiplier);
         }
     }
 }
