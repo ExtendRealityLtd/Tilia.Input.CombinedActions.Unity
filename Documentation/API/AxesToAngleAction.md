@@ -19,6 +19,10 @@
   * [OnAfterVerticalAxisChange()]
   * [OnAfterVerticalDeadzoneChange()]
   * [OnEnable()]
+  * [SetHorizontalDeadzoneMaximum(Single)]
+  * [SetHorizontalDeadzoneMinimum(Single)]
+  * [SetVerticalDeadzoneMaximum(Single)]
+  * [SetVerticalDeadzoneMinimum(Single)]
 
 ## Details
 
@@ -159,12 +163,80 @@ protected virtual void OnAfterVerticalDeadzoneChange()
 protected override void OnEnable()
 ```
 
+#### SetHorizontalDeadzoneMaximum(Single)
+
+Sets the [HorizontalDeadzone] maximum value.
+
+##### Declaration
+
+```
+public virtual void SetHorizontalDeadzoneMaximum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new maximum value. |
+
+#### SetHorizontalDeadzoneMinimum(Single)
+
+Sets the [HorizontalDeadzone] minimum value.
+
+##### Declaration
+
+```
+public virtual void SetHorizontalDeadzoneMinimum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new minimum value. |
+
+#### SetVerticalDeadzoneMaximum(Single)
+
+Sets the [VerticalDeadzone] maximum value.
+
+##### Declaration
+
+```
+public virtual void SetVerticalDeadzoneMaximum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new maximum value. |
+
+#### SetVerticalDeadzoneMinimum(Single)
+
+Sets the [VerticalDeadzone] minimum value.
+
+##### Declaration
+
+```
+public virtual void SetVerticalDeadzoneMinimum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new minimum value. |
+
 [Tilia.Input.CombinedActions]: README.md
 [AxesToAngleActionConfigurator]: AxesToAngleActionConfigurator.md
 [DirectionOffset]: AxesToAngleAction.md#DirectionOffset
 [HorizontalAxis]: AxesToAngleAction.md#HorizontalAxis
 [HorizontalDeadzone]: AxesToAngleAction.md#HorizontalDeadzone
 [VerticalAxis]: AxesToAngleAction.md#VerticalAxis
+[VerticalDeadzone]: AxesToAngleAction.md#VerticalDeadzone
+[HorizontalDeadzone]: AxesToAngleAction.md#HorizontalDeadzone
+[HorizontalDeadzone]: AxesToAngleAction.md#HorizontalDeadzone
+[VerticalDeadzone]: AxesToAngleAction.md#VerticalDeadzone
 [VerticalDeadzone]: AxesToAngleAction.md#VerticalDeadzone
 [Inheritance]: #Inheritance
 [Namespace]: #Namespace
@@ -183,3 +255,7 @@ protected override void OnEnable()
 [OnAfterVerticalAxisChange()]: #OnAfterVerticalAxisChange
 [OnAfterVerticalDeadzoneChange()]: #OnAfterVerticalDeadzoneChange
 [OnEnable()]: #OnEnable
+[SetHorizontalDeadzoneMaximum(Single)]: #SetHorizontalDeadzoneMaximumSingle
+[SetHorizontalDeadzoneMinimum(Single)]: #SetHorizontalDeadzoneMinimumSingle
+[SetVerticalDeadzoneMaximum(Single)]: #SetVerticalDeadzoneMaximumSingle
+[SetVerticalDeadzoneMinimum(Single)]: #SetVerticalDeadzoneMinimumSingle
