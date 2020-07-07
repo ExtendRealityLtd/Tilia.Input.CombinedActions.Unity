@@ -56,6 +56,50 @@
         public AxesToAngleActionConfigurator Configuration { get; protected set; }
         #endregion
 
+        /// <summary>
+        /// Sets the <see cref="HorizontalDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetHorizontalDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(HorizontalDeadzone.ToVector2());
+            newLimit.minimum = value;
+            HorizontalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="HorizontalDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetHorizontalDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(HorizontalDeadzone.ToVector2());
+            newLimit.maximum = value;
+            HorizontalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="VerticalDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetVerticalDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(VerticalDeadzone.ToVector2());
+            newLimit.minimum = value;
+            VerticalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="VerticalDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetVerticalDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(VerticalDeadzone.ToVector2());
+            newLimit.maximum = value;
+            VerticalDeadzone = newLimit;
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();

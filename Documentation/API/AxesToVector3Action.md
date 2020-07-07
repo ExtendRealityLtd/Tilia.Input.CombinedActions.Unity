@@ -29,9 +29,17 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
   * [OnAfterVerticalAxisChange()]
   * [OnAfterVerticalDeadzoneChange()]
   * [OnEnable()]
+  * [SetInputType(Int32)]
+  * [SetLateralDeadzoneMaximum(Single)]
+  * [SetLateralDeadzoneMinimum(Single)]
+  * [SetLongitudinalDeadzoneMaximum(Single)]
+  * [SetLongitudinalDeadzoneMinimum(Single)]
   * [SetMultiplierX(Single)]
   * [SetMultiplierY(Single)]
   * [SetMultiplierZ(Single)]
+  * [SetTimeMultiplier(Int32)]
+  * [SetVerticalDeadzoneMaximum(Single)]
+  * [SetVerticalDeadzoneMinimum(Single)]
 
 ## Details
 
@@ -252,6 +260,86 @@ protected virtual void OnAfterVerticalDeadzoneChange()
 protected override void OnEnable()
 ```
 
+#### SetInputType(Int32)
+
+Sets [InputType].
+
+##### Declaration
+
+```
+public virtual void SetInputType(int inputTypeIndex)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Int32 | inputTypeIndex | The index of the [AxesToVector3Action.InputHandler]. |
+
+#### SetLateralDeadzoneMaximum(Single)
+
+Sets the [LateralDeadzone] maximum value.
+
+##### Declaration
+
+```
+public virtual void SetLateralDeadzoneMaximum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new maximum value. |
+
+#### SetLateralDeadzoneMinimum(Single)
+
+Sets the [LateralDeadzone] minimum value.
+
+##### Declaration
+
+```
+public virtual void SetLateralDeadzoneMinimum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new minimum value. |
+
+#### SetLongitudinalDeadzoneMaximum(Single)
+
+Sets the [LongitudinalDeadzone] maximum value.
+
+##### Declaration
+
+```
+public virtual void SetLongitudinalDeadzoneMaximum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new maximum value. |
+
+#### SetLongitudinalDeadzoneMinimum(Single)
+
+Sets the [LongitudinalDeadzone] minimum value.
+
+##### Declaration
+
+```
+public virtual void SetLongitudinalDeadzoneMinimum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new minimum value. |
+
 #### SetMultiplierX(Single)
 
 Sets the [Multiplier] x value.
@@ -300,9 +388,56 @@ public virtual void SetMultiplierZ(float value)
 | --- | --- | --- |
 | System.Single | value | The value to set to. |
 
+#### SetTimeMultiplier(Int32)
+
+Sets [TimeMultiplier].
+
+##### Declaration
+
+```
+public virtual void SetTimeMultiplier(int timeMultiplierIndex)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Int32 | timeMultiplierIndex | The index of the TimeComponentExtractor.TimeComponent. |
+
+#### SetVerticalDeadzoneMaximum(Single)
+
+Sets the [VerticalDeadzone] maximum value.
+
+##### Declaration
+
+```
+public virtual void SetVerticalDeadzoneMaximum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new maximum value. |
+
+#### SetVerticalDeadzoneMinimum(Single)
+
+Sets the [VerticalDeadzone] minimum value.
+
+##### Declaration
+
+```
+public virtual void SetVerticalDeadzoneMinimum(float value)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Single | value | The new minimum value. |
+
 [Tilia.Input.CombinedActions]: README.md
 [AxesToVector3ActionConfigurator]: AxesToVector3ActionConfigurator.md
-[AxesToVector3Action.InputHandler]: AxesToVector3Action.InputHandler.md
 [InputType]: AxesToVector3Action.md#InputType
 [LateralAxis]: AxesToVector3Action.md#LateralAxis
 [LateralDeadzone]: AxesToVector3Action.md#LateralDeadzone
@@ -312,9 +447,18 @@ public virtual void SetMultiplierZ(float value)
 [TimeMultiplier]: AxesToVector3Action.md#TimeMultiplier
 [VerticalAxis]: AxesToVector3Action.md#VerticalAxis
 [VerticalDeadzone]: AxesToVector3Action.md#VerticalDeadzone
+[InputType]: AxesToVector3Action.md#InputType
+[AxesToVector3Action.InputHandler]: AxesToVector3Action.InputHandler.md
+[LateralDeadzone]: AxesToVector3Action.md#LateralDeadzone
+[LateralDeadzone]: AxesToVector3Action.md#LateralDeadzone
+[LongitudinalDeadzone]: AxesToVector3Action.md#LongitudinalDeadzone
+[LongitudinalDeadzone]: AxesToVector3Action.md#LongitudinalDeadzone
 [Multiplier]: AxesToVector3Action.md#Multiplier
 [Multiplier]: AxesToVector3Action.md#Multiplier
 [Multiplier]: AxesToVector3Action.md#Multiplier
+[TimeMultiplier]: AxesToVector3Action.md#TimeMultiplier
+[VerticalDeadzone]: AxesToVector3Action.md#VerticalDeadzone
+[VerticalDeadzone]: AxesToVector3Action.md#VerticalDeadzone
 [Inheritance]: #Inheritance
 [Namespace]: #Namespace
 [Syntax]: #Syntax
@@ -340,6 +484,14 @@ public virtual void SetMultiplierZ(float value)
 [OnAfterVerticalAxisChange()]: #OnAfterVerticalAxisChange
 [OnAfterVerticalDeadzoneChange()]: #OnAfterVerticalDeadzoneChange
 [OnEnable()]: #OnEnable
+[SetInputType(Int32)]: #SetInputTypeInt32
+[SetLateralDeadzoneMaximum(Single)]: #SetLateralDeadzoneMaximumSingle
+[SetLateralDeadzoneMinimum(Single)]: #SetLateralDeadzoneMinimumSingle
+[SetLongitudinalDeadzoneMaximum(Single)]: #SetLongitudinalDeadzoneMaximumSingle
+[SetLongitudinalDeadzoneMinimum(Single)]: #SetLongitudinalDeadzoneMinimumSingle
 [SetMultiplierX(Single)]: #SetMultiplierXSingle
 [SetMultiplierY(Single)]: #SetMultiplierYSingle
 [SetMultiplierZ(Single)]: #SetMultiplierZSingle
+[SetTimeMultiplier(Int32)]: #SetTimeMultiplierInt32
+[SetVerticalDeadzoneMaximum(Single)]: #SetVerticalDeadzoneMaximumSingle
+[SetVerticalDeadzoneMinimum(Single)]: #SetVerticalDeadzoneMinimumSingle

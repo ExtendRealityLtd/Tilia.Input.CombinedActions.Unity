@@ -100,6 +100,15 @@
         #endregion
 
         /// <summary>
+        /// Sets <see cref="InputType"/>.
+        /// </summary>
+        /// <param name="inputTypeIndex">The index of the <see cref="InputHandler"/>.</param>
+        public virtual void SetInputType(int inputTypeIndex)
+        {
+            InputType = (InputHandler)Mathf.Clamp(inputTypeIndex, 0, System.Enum.GetValues(typeof(InputHandler)).Length);
+        }
+
+        /// <summary>
         /// Sets the <see cref="Multiplier"/> x value.
         /// </summary>
         /// <param name="value">The value to set to.</param>
@@ -124,6 +133,81 @@
         public virtual void SetMultiplierZ(float value)
         {
             Multiplier = new Vector3(Multiplier.x, Multiplier.y, value);
+        }
+
+        /// <summary>
+        /// Sets <see cref="TimeMultiplier"/>.
+        /// </summary>
+        /// <param name="timeMultiplierIndex">The index of the <see cref="TimeComponentExtractor.TimeComponent"/>.</param>
+        public virtual void SetTimeMultiplier(int timeMultiplierIndex)
+        {
+            TimeMultiplier = (TimeComponentExtractor.TimeComponent)Mathf.Clamp(timeMultiplierIndex, 0, System.Enum.GetValues(typeof(TimeComponentExtractor.TimeComponent)).Length);
+        }
+
+        /// <summary>
+        /// Sets the <see cref="LateralDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetLateralDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(LateralDeadzone.ToVector2());
+            newLimit.minimum = value;
+            LateralDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="LateralDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetLateralDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(LateralDeadzone.ToVector2());
+            newLimit.maximum = value;
+            LateralDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="VerticalDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetVerticalDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(VerticalDeadzone.ToVector2());
+            newLimit.minimum = value;
+            VerticalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="VerticalDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetVerticalDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(VerticalDeadzone.ToVector2());
+            newLimit.maximum = value;
+            VerticalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="LongitudinalDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetLongitudinalDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(LongitudinalDeadzone.ToVector2());
+            newLimit.minimum = value;
+            LongitudinalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="LongitudinalDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetLongitudinalDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(LongitudinalDeadzone.ToVector2());
+            newLimit.maximum = value;
+            LongitudinalDeadzone = newLimit;
         }
 
         protected override void OnEnable()

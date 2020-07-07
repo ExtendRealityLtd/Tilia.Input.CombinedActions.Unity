@@ -70,6 +70,81 @@
         #endregion
 
         /// <summary>
+        /// Sets the <see cref="AngleRange"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetAngleRangeMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(AngleRange.ToVector2());
+            newLimit.minimum = value;
+            AngleRange = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="AngleRange"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetAngleRangeMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(AngleRange.ToVector2());
+            newLimit.maximum = value;
+            AngleRange = newLimit;
+        }
+
+        /// <summary>
+        /// Sets <see cref="UnitType"/>.
+        /// </summary>
+        /// <param name="unitTypeIndex">The index of the <see cref="Vector2ToAngle.AngleUnit"/>.</param>
+        public virtual void SetUnitType(int unitTypeIndex)
+        {
+            UnitType = (Vector2ToAngle.AngleUnit)Mathf.Clamp(unitTypeIndex, 0, System.Enum.GetValues(typeof(Vector2ToAngle.AngleUnit)).Length);
+        }
+
+        /// <summary>
+        /// Sets the <see cref="HorizontalDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetHorizontalDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(HorizontalDeadzone.ToVector2());
+            newLimit.minimum = value;
+            HorizontalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="HorizontalDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetHorizontalDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(HorizontalDeadzone.ToVector2());
+            newLimit.maximum = value;
+            HorizontalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="VerticalDeadzone"/> minimum value.
+        /// </summary>
+        /// <param name="value">The new minimum value.</param>
+        public virtual void SetVerticalDeadzoneMinimum(float value)
+        {
+            FloatRange newLimit = new FloatRange(VerticalDeadzone.ToVector2());
+            newLimit.minimum = value;
+            VerticalDeadzone = newLimit;
+        }
+
+        /// <summary>
+        /// Sets the <see cref="VerticalDeadzone"/> maximum value.
+        /// </summary>
+        /// <param name="value">The new maximum value.</param>
+        public virtual void SetVerticalDeadzoneMaximum(float value)
+        {
+            FloatRange newLimit = new FloatRange(VerticalDeadzone.ToVector2());
+            newLimit.maximum = value;
+            VerticalDeadzone = newLimit;
+        }
+
+        /// <summary>
         /// Called after <see cref="AngleRange"/> has been changed.
         /// </summary>
         [CalledAfterChangeOf(nameof(AngleRange))]
