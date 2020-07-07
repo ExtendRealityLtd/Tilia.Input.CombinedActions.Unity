@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.7.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.6.1...v1.7.0) (2020-07-07)
+
+#### Features
+
+* **Actions:** change unsupported properties via UnityEvents ([a6c568b](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/a6c568bcde93549f5f3312501a7d1f33cf376d3f))
+  > A number of public properties could not be changed by UnityEvents as the data types were not supported by the UnityEvent inspector.
+  > 
+  > This change brings in custom methods that allows changing these custom data types via UnityEvents by providing primitive inputs.
+
 ### [1.6.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.6.0...v1.6.1) (2020-07-04)
 
 #### Bug Fixes
