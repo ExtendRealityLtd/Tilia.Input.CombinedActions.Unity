@@ -9,6 +9,7 @@
     using Zinnia.Data.Attribute;
     using Zinnia.Data.Operation.Extraction;
     using Zinnia.Data.Type;
+    using Zinnia.Extension;
 
     /// <summary>
     /// Converts a lateral, vertical and longitudinal float representation into a Vector3 action.
@@ -162,7 +163,7 @@
         /// <param name="timeMultiplierIndex">The index of the <see cref="TimeComponentExtractor.TimeComponent"/>.</param>
         public virtual void SetTimeMultiplier(int timeMultiplierIndex)
         {
-            TimeMultiplier = (TimeComponentExtractor.TimeComponent)Mathf.Clamp(timeMultiplierIndex, 0, System.Enum.GetValues(typeof(TimeComponentExtractor.TimeComponent)).Length);
+            TimeMultiplier = EnumExtensions.GetByIndex<TimeComponentExtractor.TimeComponent>(timeMultiplierIndex);
         }
 
         /// <summary>

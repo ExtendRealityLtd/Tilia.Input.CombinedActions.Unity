@@ -9,6 +9,7 @@
     using Zinnia.Data.Attribute;
     using Zinnia.Data.Type;
     using Zinnia.Data.Type.Transformation.Conversion;
+    using Zinnia.Extension;
 
     /// <summary>
     /// The public interface into the AngleRangeToBoolean Prefab.
@@ -97,7 +98,7 @@
         /// <param name="unitTypeIndex">The index of the <see cref="Vector2ToAngle.AngleUnit"/>.</param>
         public virtual void SetUnitType(int unitTypeIndex)
         {
-            UnitType = (Vector2ToAngle.AngleUnit)Mathf.Clamp(unitTypeIndex, 0, System.Enum.GetValues(typeof(Vector2ToAngle.AngleUnit)).Length);
+            UnitType = EnumExtensions.GetByIndex<Vector2ToAngle.AngleUnit>(unitTypeIndex);
         }
 
         /// <summary>

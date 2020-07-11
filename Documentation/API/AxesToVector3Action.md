@@ -9,6 +9,7 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
 * [Syntax]
 * [Properties]
   * [Configuration]
+  * [DeadzoneCalculation]
   * [InputType]
   * [LateralAxis]
   * [LateralDeadzone]
@@ -19,6 +20,7 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
   * [VerticalAxis]
   * [VerticalDeadzone]
 * [Methods]
+  * [OnAfterDeadzoneCalculationChange()]
   * [OnAfterInputTypeChange()]
   * [OnAfterLateralAxisChange()]
   * [OnAfterLateralDeadzoneChange()]
@@ -29,6 +31,7 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
   * [OnAfterVerticalAxisChange()]
   * [OnAfterVerticalDeadzoneChange()]
   * [OnEnable()]
+  * [SetDeadzoneCalculation(Int32)]
   * [SetInputType(Int32)]
   * [SetLateralDeadzoneMaximum(Single)]
   * [SetLateralDeadzoneMinimum(Single)]
@@ -68,6 +71,16 @@ The linked Internal Setup.
 
 ```
 public AxesToVector3ActionConfigurator Configuration { get; protected set; }
+```
+
+#### DeadzoneCalculation
+
+The way in which the deadzone is calculated by the input axes.
+
+##### Declaration
+
+```
+public AxesToVector3Action.DeadzoneType DeadzoneCalculation { get; set; }
 ```
 
 #### InputType
@@ -161,6 +174,16 @@ public FloatRange VerticalDeadzone { get; set; }
 ```
 
 ### Methods
+
+#### OnAfterDeadzoneCalculationChange()
+
+Called after [DeadzoneCalculation] has been changed.
+
+##### Declaration
+
+```
+protected virtual void OnAfterDeadzoneCalculationChange()
+```
 
 #### OnAfterInputTypeChange()
 
@@ -259,6 +282,22 @@ protected virtual void OnAfterVerticalDeadzoneChange()
 ```
 protected override void OnEnable()
 ```
+
+#### SetDeadzoneCalculation(Int32)
+
+Sets [DeadzoneCalculation].
+
+##### Declaration
+
+```
+public virtual void SetDeadzoneCalculation(int deadzoneTypeIndex)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| System.Int32 | deadzoneTypeIndex | The index of the [AxesToVector3Action.DeadzoneType]. |
 
 #### SetInputType(Int32)
 
@@ -438,6 +477,7 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 
 [Tilia.Input.CombinedActions]: README.md
 [AxesToVector3ActionConfigurator]: AxesToVector3ActionConfigurator.md
+[DeadzoneCalculation]: AxesToVector3Action.md#DeadzoneCalculation
 [InputType]: AxesToVector3Action.md#InputType
 [LateralAxis]: AxesToVector3Action.md#LateralAxis
 [LateralDeadzone]: AxesToVector3Action.md#LateralDeadzone
@@ -447,6 +487,8 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [TimeMultiplier]: AxesToVector3Action.md#TimeMultiplier
 [VerticalAxis]: AxesToVector3Action.md#VerticalAxis
 [VerticalDeadzone]: AxesToVector3Action.md#VerticalDeadzone
+[DeadzoneCalculation]: AxesToVector3Action.md#DeadzoneCalculation
+[AxesToVector3Action.DeadzoneType]: AxesToVector3Action.DeadzoneType.md
 [InputType]: AxesToVector3Action.md#InputType
 [AxesToVector3Action.InputHandler]: AxesToVector3Action.InputHandler.md
 [LateralDeadzone]: AxesToVector3Action.md#LateralDeadzone
@@ -464,6 +506,7 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [Syntax]: #Syntax
 [Properties]: #Properties
 [Configuration]: #Configuration
+[DeadzoneCalculation]: #DeadzoneCalculation
 [InputType]: #InputType
 [LateralAxis]: #LateralAxis
 [LateralDeadzone]: #LateralDeadzone
@@ -474,6 +517,7 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [VerticalAxis]: #VerticalAxis
 [VerticalDeadzone]: #VerticalDeadzone
 [Methods]: #Methods
+[OnAfterDeadzoneCalculationChange()]: #OnAfterDeadzoneCalculationChange
 [OnAfterInputTypeChange()]: #OnAfterInputTypeChange
 [OnAfterLateralAxisChange()]: #OnAfterLateralAxisChange
 [OnAfterLateralDeadzoneChange()]: #OnAfterLateralDeadzoneChange
@@ -484,6 +528,7 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [OnAfterVerticalAxisChange()]: #OnAfterVerticalAxisChange
 [OnAfterVerticalDeadzoneChange()]: #OnAfterVerticalDeadzoneChange
 [OnEnable()]: #OnEnable
+[SetDeadzoneCalculation(Int32)]: #SetDeadzoneCalculationInt32
 [SetInputType(Int32)]: #SetInputTypeInt32
 [SetLateralDeadzoneMaximum(Single)]: #SetLateralDeadzoneMaximumSingle
 [SetLateralDeadzoneMinimum(Single)]: #SetLateralDeadzoneMinimumSingle

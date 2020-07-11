@@ -32,6 +32,10 @@ Sets up the BooleanTo1DAxisAction prefab based on the provided user settings.
 
 ### Enums
 
+#### [AxesToVector3Action.DeadzoneType]
+
+The type of deadzone to apply to the input.
+
 #### [AxesToVector3Action.InputHandler]
 
 The way the input is handled.
@@ -44,4 +48,5 @@ The way the input is handled.
 [AxesToVector3ActionConfigurator]: AxesToVector3ActionConfigurator.md
 [BooleanTo1DAxisAction]: BooleanTo1DAxisAction.md
 [BooleanTo1DAxisActionConfigurator]: BooleanTo1DAxisActionConfigurator.md
+[AxesToVector3Action.DeadzoneType]: AxesToVector3Action.DeadzoneType.md
 [AxesToVector3Action.InputHandler]: AxesToVector3Action.InputHandler.md
