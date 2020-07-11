@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.7.1...v1.8.0) (2020-07-11)
+
+#### Features
+
+* **AxesToVector3Action:** provide combined deadzone option ([ca17e97](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/ca17e97fc655f66ec964ae97a51099a3df821743))
+  > The deadzones were previously calculated per axis meaning the axis data would not be reported for each individual axis. However, this meant that circular motions outside of the initial axis would not be correctly reported.
+  > 
+  > The solution is to provide a combined axis deadzone option that implements a zonal axis deadzone that takes all axis deadzones into consideration.
+
 ### [1.7.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.7.0...v1.7.1) (2020-07-11)
 
 #### Miscellaneous Chores
