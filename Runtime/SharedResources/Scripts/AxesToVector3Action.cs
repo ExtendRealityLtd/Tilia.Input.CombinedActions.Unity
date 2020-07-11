@@ -30,6 +30,21 @@
             Directional
         }
 
+        /// <summary>
+        /// The type of deadzone to apply to the input.
+        /// </summary>
+        public enum DeadzoneType
+        {
+            /// <summary>
+            /// Each single axis value has its own deadzone applied independently.
+            /// </summary>
+            SingleAxis,
+            /// <summary>
+            /// All of the axis deadzone values are combined to form a zonal deadzone.
+            /// </summary>
+            CombinedAxis
+        }
+
         #region Axis Settings
         /// <summary>
         /// Determines how to handle the axis input data to control the <see cref="Vector3"/> output.
@@ -71,10 +86,16 @@
 
         #region Deadzone Settings
         /// <summary>
+        /// The way in which the deadzone is calculated by the input axes.
+        /// </summary>
+        [Serialized]
+        [field: Header("Deadzone Settings"), DocumentedByXml]
+        public DeadzoneType DeadzoneCalculation { get; set; } = DeadzoneType.SingleAxis;
+        /// <summary>
         /// The bounds in which the Lateral Axis is considered inactive.
         /// </summary>
         [Serialized]
-        [field: Header("Deadzone Settings"), DocumentedByXml, MinMaxRange(-1f, 1f)]
+        [field: DocumentedByXml, MinMaxRange(-1f, 1f)]
         public FloatRange LateralDeadzone { get; set; } = new FloatRange(-0.5f, 0.5f);
         /// <summary>
         /// The bounds in which the Vertical Axis is considered inactive.
@@ -142,6 +163,15 @@
         public virtual void SetTimeMultiplier(int timeMultiplierIndex)
         {
             TimeMultiplier = (TimeComponentExtractor.TimeComponent)Mathf.Clamp(timeMultiplierIndex, 0, System.Enum.GetValues(typeof(TimeComponentExtractor.TimeComponent)).Length);
+        }
+
+        /// <summary>
+        /// Sets <see cref="DeadzoneCalculation"/>.
+        /// </summary>
+        /// <param name="deadzoneTypeIndex">The index of the <see cref="DeadzoneType"/>.</param>
+        public virtual void SetDeadzoneCalculation(int deadzoneTypeIndex)
+        {
+            DeadzoneCalculation = (DeadzoneType)Mathf.Clamp(deadzoneTypeIndex, 0, System.Enum.GetValues(typeof(DeadzoneType)).Length);
         }
 
         /// <summary>
@@ -218,10 +248,11 @@
             Configuration.SetVerticalAxisSource(VerticalAxis);
             Configuration.SetLongitudinalAxisSource(LongitudinalAxis);
             Configuration.SetMultiplier(Multiplier);
+            Configuration.SetTimeMultiplier(TimeMultiplier);
+            Configuration.SetDeadzoneCalculation(DeadzoneCalculation);
             Configuration.SetLateralDeadzone(LateralDeadzone);
             Configuration.SetVerticalDeadzone(VerticalDeadzone);
             Configuration.SetLongitudinalDeadzone(LongitudinalDeadzone);
-            Configuration.SetTimeMultiplier(TimeMultiplier);
         }
 
         /// <summary>
@@ -270,6 +301,24 @@
         }
 
         /// <summary>
+        /// Called after <see cref="TimeMultiplier"/> has been changed.
+        /// </summary>
+        [CalledAfterChangeOf(nameof(TimeMultiplier))]
+        protected virtual void OnAfterTimeMultiplierChange()
+        {
+            Configuration.SetTimeMultiplier(TimeMultiplier);
+        }
+
+        /// <summary>
+        /// Called after <see cref="DeadzoneCalculation"/> has been changed.
+        /// </summary>
+        [CalledAfterChangeOf(nameof(DeadzoneCalculation))]
+        protected virtual void OnAfterDeadzoneCalculationChange()
+        {
+            Configuration.SetDeadzoneCalculation(DeadzoneCalculation);
+        }
+
+        /// <summary>
         /// Called after <see cref="LateralDeadzone"/> has been changed.
         /// </summary>
         [CalledAfterChangeOf(nameof(LateralDeadzone))]
@@ -294,15 +343,6 @@
         protected virtual void OnAfterLongitudinalDeadzoneChange()
         {
             Configuration.SetLongitudinalDeadzone(LongitudinalDeadzone);
-        }
-
-        /// <summary>
-        /// Called after <see cref="TimeMultiplier"/> has been changed.
-        /// </summary>
-        [CalledAfterChangeOf(nameof(TimeMultiplier))]
-        protected virtual void OnAfterTimeMultiplierChange()
-        {
-            Configuration.SetTimeMultiplier(TimeMultiplier);
         }
     }
 }

@@ -68,11 +68,23 @@
         [field: DocumentedByXml, Restricted]
         public GameObject DirectionalContainer { get; set; }
         /// <summary>
+        /// The container that holds the single axis deadzone logic.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml, Restricted]
+        public GameObject SingleAxisDeadzoneContainer { get; set; }
+        /// <summary>
+        /// The container that holds the combined axis deadzone logic.
+        /// </summary>
+        [Serialized]
+        [field: DocumentedByXml, Restricted]
+        public GameObject CombinedAxisDeadzoneContainer { get; set; }
+        /// <summary>
         /// The lateral deadzone controller.
         /// </summary>
         [Serialized]
         [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LateralDeadZone { get; set; }
+        public FloatToBoolean[] LateralDeadZone { get; set; }
         /// <summary>
         /// The lateral positive bounds controller.
         /// </summary>
@@ -96,7 +108,7 @@
         /// </summary>
         [Serialized]
         [field: DocumentedByXml, Restricted]
-        public FloatToBoolean VerticalDeadZone { get; set; }
+        public FloatToBoolean[] VerticalDeadZone { get; set; }
         /// <summary>
         /// The vertical positive bounds controller.
         /// </summary>
@@ -120,7 +132,7 @@
         /// </summary>
         [Serialized]
         [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LongitudinalDeadZone { get; set; }
+        public FloatToBoolean[] LongitudinalDeadZone { get; set; }
         /// <summary>
         /// The longitudinal positive bounds controller.
         /// </summary>
@@ -203,6 +215,25 @@
         }
 
         /// <summary>
+        /// Enables the appropriate Deadzone Calculation logic.
+        /// </summary>
+        /// <param name="deadzoneType">The type of deadzone to use.</param>
+        public virtual void SetDeadzoneCalculation(AxesToVector3Action.DeadzoneType deadzoneType)
+        {
+            switch (deadzoneType)
+            {
+                case AxesToVector3Action.DeadzoneType.SingleAxis:
+                    CombinedAxisDeadzoneContainer.SetActive(false);
+                    SingleAxisDeadzoneContainer.SetActive(true);
+                    break;
+                case AxesToVector3Action.DeadzoneType.CombinedAxis:
+                    SingleAxisDeadzoneContainer.SetActive(false);
+                    CombinedAxisDeadzoneContainer.SetActive(true);
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Sets the deadzone for the lateral axis.
         /// </summary>
         /// <param name="deadzone">The deadzone range to set to.</param>
@@ -246,9 +277,13 @@
         /// <param name="positiveBounds">The axis positive bounds to set.</param>
         /// <param name="negativeBounds">The axis negative bounds to set.</param>
         /// <param name="boundsManager">The axis bounds manager to set.</param>
-        protected virtual void SetBounds(FloatRange newBounds, FloatToBoolean deadzone, FloatToBoolean positiveBounds, FloatToBoolean negativeBounds, FloatToBoolean boundsManager)
+        protected virtual void SetBounds(FloatRange newBounds, FloatToBoolean[] deadzone, FloatToBoolean positiveBounds, FloatToBoolean negativeBounds, FloatToBoolean boundsManager)
         {
-            deadzone.SetPositiveBounds(newBounds.ToVector2());
+            foreach (FloatToBoolean zone in deadzone)
+            {
+                zone.SetPositiveBounds(newBounds.ToVector2());
+            }
+
             positiveBounds.SetPositiveBounds(new Vector2(newBounds.maximum, 1f));
             negativeBounds.SetPositiveBounds(new Vector2(-1f, newBounds.minimum));
             boundsManager.SetPositiveBounds(new Vector2(Mathf.Max(-1f, newBounds.minimum - BoundOverlap), Mathf.Min(newBounds.maximum + BoundOverlap, 1f)));
