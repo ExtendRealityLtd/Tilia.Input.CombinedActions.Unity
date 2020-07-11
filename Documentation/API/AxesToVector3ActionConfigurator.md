@@ -10,6 +10,7 @@ Sets up the AxesToVector3Action prefab based on the provided user settings.
 * [Properties]
   * [AutoConfigureBounds]
   * [BoundOverlap]
+  * [CombinedAxisDeadzoneContainer]
   * [DirectionalContainer]
   * [IncrementalContainer]
   * [LateralAction]
@@ -23,6 +24,7 @@ Sets up the AxesToVector3Action prefab based on the provided user settings.
   * [LongitudinalNegativeBounds]
   * [LongitudinalPositiveBounds]
   * [Multiplier]
+  * [SingleAxisDeadzoneContainer]
   * [TimeExtractor]
   * [VerticalAction]
   * [VerticalBoundsManager]
@@ -30,7 +32,8 @@ Sets up the AxesToVector3Action prefab based on the provided user settings.
   * [VerticalNegativeBounds]
   * [VerticalPositiveBounds]
 * [Methods]
-  * [SetBounds(FloatRange, FloatToBoolean, FloatToBoolean, FloatToBoolean, FloatToBoolean)]
+  * [SetBounds(FloatRange, FloatToBoolean\[\], FloatToBoolean, FloatToBoolean, FloatToBoolean)]
+  * [SetDeadzoneCalculation(AxesToVector3Action.DeadzoneType)]
   * [SetInputSource(FloatAction, FloatAction)]
   * [SetInputType(AxesToVector3Action.InputHandler)]
   * [SetLateralAxisSource(FloatAction)]
@@ -81,6 +84,16 @@ The value to overlap the directional input bounds by.
 public float BoundOverlap { get; set; }
 ```
 
+#### CombinedAxisDeadzoneContainer
+
+The container that holds the combined axis deadzone logic.
+
+##### Declaration
+
+```
+public GameObject CombinedAxisDeadzoneContainer { get; set; }
+```
+
 #### DirectionalContainer
 
 The container that holds the directional input logic.
@@ -128,7 +141,7 @@ The lateral deadzone controller.
 ##### Declaration
 
 ```
-public FloatToBoolean LateralDeadZone { get; set; }
+public FloatToBoolean[] LateralDeadZone { get; set; }
 ```
 
 #### LateralNegativeBounds
@@ -178,7 +191,7 @@ The longitudinal deadzone controller.
 ##### Declaration
 
 ```
-public FloatToBoolean LongitudinalDeadZone { get; set; }
+public FloatToBoolean[] LongitudinalDeadZone { get; set; }
 ```
 
 #### LongitudinalNegativeBounds
@@ -209,6 +222,16 @@ The collection used to multiply the output Vector3.
 
 ```
 public Vector3ObservableList Multiplier { get; set; }
+```
+
+#### SingleAxisDeadzoneContainer
+
+The container that holds the single axis deadzone logic.
+
+##### Declaration
+
+```
+public GameObject SingleAxisDeadzoneContainer { get; set; }
 ```
 
 #### TimeExtractor
@@ -248,7 +271,7 @@ The vertical deadzone controller.
 ##### Declaration
 
 ```
-public FloatToBoolean VerticalDeadZone { get; set; }
+public FloatToBoolean[] VerticalDeadZone { get; set; }
 ```
 
 #### VerticalNegativeBounds
@@ -273,14 +296,14 @@ public FloatToBoolean VerticalPositiveBounds { get; set; }
 
 ### Methods
 
-#### SetBounds(FloatRange, FloatToBoolean, FloatToBoolean, FloatToBoolean, FloatToBoolean)
+#### SetBounds(FloatRange, FloatToBoolean\[\], FloatToBoolean, FloatToBoolean, FloatToBoolean)
 
 Sets the boundary data for the input.
 
 ##### Declaration
 
 ```
-protected virtual void SetBounds(FloatRange newBounds, FloatToBoolean deadzone, FloatToBoolean positiveBounds, FloatToBoolean negativeBounds, FloatToBoolean boundsManager)
+protected virtual void SetBounds(FloatRange newBounds, FloatToBoolean[] deadzone, FloatToBoolean positiveBounds, FloatToBoolean negativeBounds, FloatToBoolean boundsManager)
 ```
 
 ##### Parameters
@@ -288,10 +311,26 @@ protected virtual void SetBounds(FloatRange newBounds, FloatToBoolean deadzone, 
 | Type | Name | Description |
 | --- | --- | --- |
 | FloatRange | newBounds | Thew new range for the bounds. |
-| FloatToBoolean | deadzone | The axis deadzone to set. |
+| FloatToBoolean\[\] | deadzone | The axis deadzone to set. |
 | FloatToBoolean | positiveBounds | The axis positive bounds to set. |
 | FloatToBoolean | negativeBounds | The axis negative bounds to set. |
 | FloatToBoolean | boundsManager | The axis bounds manager to set. |
+
+#### SetDeadzoneCalculation(AxesToVector3Action.DeadzoneType)
+
+Enables the appropriate Deadzone Calculation logic.
+
+##### Declaration
+
+```
+public virtual void SetDeadzoneCalculation(AxesToVector3Action.DeadzoneType deadzoneType)
+```
+
+##### Parameters
+
+| Type | Name | Description |
+| --- | --- | --- |
+| [AxesToVector3Action.DeadzoneType] | deadzoneType | The type of deadzone to use. |
 
 #### SetInputSource(FloatAction, FloatAction)
 
@@ -455,6 +494,7 @@ public virtual void SetVerticalDeadzone(FloatRange deadzone)
 | FloatRange | deadzone | The deadzone range to set to. |
 
 [Tilia.Input.CombinedActions]: README.md
+[AxesToVector3Action.DeadzoneType]: AxesToVector3Action.DeadzoneType.md
 [AxesToVector3Action.InputHandler]: AxesToVector3Action.InputHandler.md
 [LateralAction]: AxesToVector3ActionConfigurator.md#LateralAction
 [LongitudinalAction]: AxesToVector3ActionConfigurator.md#LongitudinalAction
@@ -465,6 +505,7 @@ public virtual void SetVerticalDeadzone(FloatRange deadzone)
 [Properties]: #Properties
 [AutoConfigureBounds]: #AutoConfigureBounds
 [BoundOverlap]: #BoundOverlap
+[CombinedAxisDeadzoneContainer]: #CombinedAxisDeadzoneContainer
 [DirectionalContainer]: #DirectionalContainer
 [IncrementalContainer]: #IncrementalContainer
 [LateralAction]: #LateralAction
@@ -478,6 +519,7 @@ public virtual void SetVerticalDeadzone(FloatRange deadzone)
 [LongitudinalNegativeBounds]: #LongitudinalNegativeBounds
 [LongitudinalPositiveBounds]: #LongitudinalPositiveBounds
 [Multiplier]: #Multiplier
+[SingleAxisDeadzoneContainer]: #SingleAxisDeadzoneContainer
 [TimeExtractor]: #TimeExtractor
 [VerticalAction]: #VerticalAction
 [VerticalBoundsManager]: #VerticalBoundsManager
@@ -485,7 +527,8 @@ public virtual void SetVerticalDeadzone(FloatRange deadzone)
 [VerticalNegativeBounds]: #VerticalNegativeBounds
 [VerticalPositiveBounds]: #VerticalPositiveBounds
 [Methods]: #Methods
-[SetBounds(FloatRange, FloatToBoolean, FloatToBoolean, FloatToBoolean, FloatToBoolean)]: #SetBoundsFloatRange-FloatToBoolean-FloatToBoolean-FloatToBoolean-FloatToBoolean
+[SetBounds(FloatRange, FloatToBoolean\[\], FloatToBoolean, FloatToBoolean, FloatToBoolean)]: #SetBoundsFloatRange-FloatToBoolean\[\]-FloatToBoolean-FloatToBoolean-FloatToBoolean
+[SetDeadzoneCalculation(AxesToVector3Action.DeadzoneType)]: #SetDeadzoneCalculationAxesToVector3Action.DeadzoneType
 [SetInputSource(FloatAction, FloatAction)]: #SetInputSourceFloatAction-FloatAction
 [SetInputType(AxesToVector3Action.InputHandler)]: #SetInputTypeAxesToVector3Action.InputHandler
 [SetLateralAxisSource(FloatAction)]: #SetLateralAxisSourceFloatAction
