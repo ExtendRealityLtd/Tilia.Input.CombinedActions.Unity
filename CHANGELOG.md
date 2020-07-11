@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.8.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.8.0...v1.8.1) (2020-07-11)
+
+#### Bug Fixes
+
+* **API:** add missing API documentation ([f7456ec](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/f7456ec6c63cccc93319b511a8e4220dac17ca8c))
+  > The API wasn't auto generated for the previous changes so the API docs were not up to date, they should be now.
+* **Facade:** use extension method to set enum value ([8e659f5](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/8e659f55ebe45a2a2fb091968ec647ce5bfd5cf8))
+  > The SetUnitType and SetTimeMultiplier methods now uses the Zinnia EnumExtensions helper method to set the value of the enum by the index instead of repeating the same logic.
+
 ## [1.8.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.7.1...v1.8.0) (2020-07-11)
 
 #### Features
