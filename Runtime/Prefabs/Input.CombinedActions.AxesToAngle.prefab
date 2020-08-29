@@ -113,6 +113,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Zinnia.Action.Action+BooleanUnityEvent, Zinnia.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  initialValue: 0
   defaultValue: 0
   sources: []
   Activated:
@@ -185,6 +186,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Zinnia.Action.Action+BooleanUnityEvent, Zinnia.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  initialValue: 0
   defaultValue: 0
   sources: []
   Activated:
@@ -273,6 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -350,6 +353,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Zinnia.Action.Action+BooleanUnityEvent, Zinnia.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  initialValue: 0
   defaultValue: 0
   sources: []
   Activated:
@@ -525,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5ca26039c48b4ebeaeab29063331e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  payload: 0
   Emitted:
     m_PersistentCalls:
       m_Calls:
@@ -654,6 +659,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Zinnia.Action.Action+BooleanUnityEvent, Zinnia.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  initialValue: 0
   defaultValue: 0
   sources: []
   Activated:
@@ -853,6 +859,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Zinnia.Action.Action+BooleanUnityEvent, Zinnia.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  initialValue: 0
   defaultValue: 0
   sources: []
   Activated:
@@ -1027,6 +1034,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Zinnia.Action.Action+BooleanUnityEvent, Zinnia.Runtime, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  initialValue: 0
   defaultValue: 0
   sources: []
   Activated:
@@ -1280,7 +1288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc24060065bd745b2cdd7d86605744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
   Extracted:
     m_PersistentCalls:
       m_Calls:
@@ -1302,7 +1309,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  useLocal: 1
+  source: {fileID: 0}
+  useLocal: 0
   direction: 2
 --- !u!114 &2656711865375844631
 MonoBehaviour:
@@ -1361,4 +1369,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Zinnia.Data.Type.Transformation.Aggregation.Vector2Multiplier+UnityEvent,
       Zinnia.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  Failed:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   collection: {fileID: 8064209917411429763}
