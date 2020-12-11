@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.8.8](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.8.7...v1.8.8) (2020-12-11)
+
+#### Bug Fixes
+
+* **HowToGuides:** apply document styling guidelines ([24b72a1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/24b72a120357aea2531a84da5b736ac9107938dd))
+  > The document style guidelines have been updated and now have been applied to the guides in this repo.
+
 ### [1.8.7](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.8.6...v1.8.7) (2020-11-01)
 
 #### Miscellaneous Chores
