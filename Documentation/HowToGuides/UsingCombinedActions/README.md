@@ -34,9 +34,7 @@ Right click on the `Capsule` GameObject, select `3D Object -> Cube` and change t
 
 ### Step 2
 
-Expand the `Tilia Input UnityInputManager Unity` package directory in the Unity Project window and select the `Packages -> Tilia Input UnityInputManager Unity -> Runtime -> Prefabs -> Actions` directory then drag and drop the `Input.UnityInputManager.ButtonAction` prefab into the Unity Hierarchy window.
-
-![Import Unity Input Manager](assets/images/ImportUnityInputManager.png)
+Add a `Input.UnityInputManager.ButtonAction` prefab to the Unity project hierarchy by selecting `GameObject -> Tilia -> Prefabs -> Input -> UnityInputManager -> Input.UnityInputManager.ButtonAction` from the Unity main top menu.
 
 Set the `Key Code` property in the `Unity Input Manager Button Action` component to `W`.
 
@@ -50,9 +48,7 @@ Set the `Key Code` property in the `Unity Input Manager Button Action` component
 
 ### Step 3
 
-Expand the `Tilia Input CombinedActions Unity` package directory in the Unity Project window and select the `Packages -> Tilia Input CombinedActions Unity -> Runtime -> Prefabs` directory then drag and drop the `Input.CombinedActions.BooleanTo1DAxisAction` prefab into the Unity Hierarchy window.
-
-![Import Combined Actions Prefab](assets/images/ImportCombinedActionsPrefab.png)
+Add a `Input.CombinedActions.BooleanTo1DAxisAction` prefab to the Unity project hierarchy by selecting `GameObject -> Tilia -> Prefabs -> Input -> CombinedActions -> Input.CombinedActions.BooleanTo1DAxisAction` from the Unity main top menu.
 
 Rename the newly created `Input.CombinedActions.BooleanTo1DAxisAction` GameObject to `Input.CombinedActions.BooleanTo1DAxisAction Horizontal`
 
@@ -92,9 +88,7 @@ Drag and drop the `Capsule` GameObject into the `Target` property on the `Transf
 
 ### Step 8
 
-Expand the `Tilia Input CombinedActions Unity` package directory in the Unity Project window and select the `Packages -> Tilia Input CombinedActions Unity -> Runtime -> Prefabs` directory then drag and drop the `Input.CombinedActions.AxesToVector3Action` prefab into the Unity Hierarchy window.
-
-![Import Axes To Vector3 Action](assets/images/ImportAxesToVector3Action.png)
+Add a `Input.CombinedActions.AxesToVector3Action` prefab to the Unity project hierarchy by selecting `GameObject -> Tilia -> Prefabs -> Input -> CombinedActions -> Input.CombinedActions.AxesToVector3Action` from the Unity main top menu.
 
 ### Step 9
 
@@ -176,9 +170,7 @@ Select a function to perform when the `Value Changed` event is emitted. For this
 
 ### Step 15
 
-Expand the `Tilia Input CombinedActions Unity` package directory in the Unity Project window and select the `Packages -> Tilia Input CombinedActions Unity -> Runtime -> Prefabs` directory then drag and drop the `Input.CombinedActions.AxesToAngle` prefab into the Unity Hierarchy window.
-
-![Import Axes To Angle](assets/images/ImportAxesToAngle.png)
+Add a `Input.CombinedActions.AxesToAngle` prefab to the Unity project hierarchy by selecting `GameObject -> Tilia -> Prefabs -> Input -> CombinedActions -> Input.CombinedActions.AxesToAngle` from the Unity main top menu.
 
 ### Step 16
 
