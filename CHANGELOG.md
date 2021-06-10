@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.9.3](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.9.2...v1.9.3) (2021-06-10)
+
+#### Miscellaneous Chores
+
+* **deps:** bump io.extendreality.zinnia.unity from 1.36.0 to 1.36.1 ([70913bb](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/70913bb631cfe7c29c369de582086e672f424ad3))
+  > Bumps [io.extendreality.zinnia.unity](https://github.com/ExtendRealityLtd/Zinnia.Unity) from 1.36.0 to 1.36.1. - [Release notes](https://github.com/ExtendRealityLtd/Zinnia.Unity/releases) - [Changelog](https://github.com/ExtendRealityLtd/Zinnia.Unity/blob/master/CHANGELOG.md) - [Commits](https://github.com/ExtendRealityLtd/Zinnia.Unity/compare/v1.36.0...v1.36.1)
+* **README.md:** update title logo to related-media repo ([8e3d6ec](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/8e3d6ec9f23491ca3f2fea530dc31e91b0720c75))
+  > The title logo is now located on the related-media repo.
+
 ### [1.9.2](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.9.1...v1.9.2) (2021-05-09)
 
 #### Miscellaneous Chores
