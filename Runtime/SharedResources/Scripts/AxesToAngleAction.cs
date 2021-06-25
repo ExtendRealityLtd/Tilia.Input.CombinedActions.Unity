@@ -9,6 +9,9 @@
     using Zinnia.Data.Attribute;
     using Zinnia.Data.Type;
 
+    /// <summary>
+    /// Converts a the given axis data into an output angle.
+    /// </summary>
     public class AxesToAngleAction : FloatAction
     {
         #region Axis Settings

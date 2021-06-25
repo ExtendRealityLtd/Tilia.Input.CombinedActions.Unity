@@ -9,6 +9,9 @@
     using Zinnia.Data.Type;
     using Zinnia.Data.Type.Transformation.Conversion;
 
+    /// <summary>
+    /// Sets up the AxesToAngleAction prefab based on the provided user settings.
+    /// </summary>
     public class AxesToAngleActionConfigurator : MonoBehaviour
     {
         #region Axis Settings

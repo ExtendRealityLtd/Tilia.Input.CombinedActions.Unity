@@ -1,5 +1,7 @@
 # Class AxesToAngleAction
 
+Converts a the given axis data into an output angle.
+
 ## Contents
 
 * [Inheritance]
