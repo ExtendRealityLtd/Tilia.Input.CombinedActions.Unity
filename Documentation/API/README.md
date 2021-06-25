@@ -12,7 +12,11 @@ The public interface into the AngleRangeToBoolean Prefab.
 
 #### [AxesToAngleAction]
 
+Converts a the given axis data into an output angle.
+
 #### [AxesToAngleActionConfigurator]
+
+Sets up the AxesToAngleAction prefab based on the provided user settings.
 
 #### [AxesToVector3Action]
 
@@ -29,6 +33,14 @@ Converts a positive and negative boolean representation into a 1D axis float act
 #### [BooleanTo1DAxisActionConfigurator]
 
 Sets up the BooleanTo1DAxisAction prefab based on the provided user settings.
+
+#### [DoubleClickActionConfigurator]
+
+Sets up the DoubleClickAction prefab based on the provided user settings.
+
+#### [DoubleClickActionFacade]
+
+Controls the BooleanAction state based on whether the given input action has been activated twice within a given period of time.
 
 ### Enums
 
@@ -48,5 +60,7 @@ The way the input is handled.
 [AxesToVector3ActionConfigurator]: AxesToVector3ActionConfigurator.md
 [BooleanTo1DAxisAction]: BooleanTo1DAxisAction.md
 [BooleanTo1DAxisActionConfigurator]: BooleanTo1DAxisActionConfigurator.md
+[DoubleClickActionConfigurator]: DoubleClickActionConfigurator.md
+[DoubleClickActionFacade]: DoubleClickActionFacade.md
 [AxesToVector3Action.DeadzoneType]: AxesToVector3Action.DeadzoneType.md
 [AxesToVector3Action.InputHandler]: AxesToVector3Action.InputHandler.md

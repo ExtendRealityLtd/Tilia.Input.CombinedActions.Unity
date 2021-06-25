@@ -1,5 +1,7 @@
 # Class AxesToAngleActionConfigurator
 
+Sets up the AxesToAngleAction prefab based on the provided user settings.
+
 ## Contents
 
 * [Inheritance]
