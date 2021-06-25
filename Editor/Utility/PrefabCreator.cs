@@ -19,6 +19,7 @@ namespace Tilia.Input.CombinedActions.Utility
         private const string prefabCombinedActionsAxesToAngle = "Input.CombinedActions.AxesToAngle";
         private const string prefabCombinedActionsAxesToVector3Action = "Input.CombinedActions.AxesToVector3Action";
         private const string prefabCombinedActionsBooleanTo1DAxisAction = "Input.CombinedActions.BooleanTo1DAxisAction";
+        private const string prefabCombinedActionsDoubleClickAction = "Input.CombinedActions.DoubleClickAction";
 
         [MenuItem(menuItemRoot + prefabCombinedActionsAngleRangeToBoolean, false, priority)]
         private static void AddCombinedActionsAngleRangeToBoolean()
@@ -48,6 +49,14 @@ namespace Tilia.Input.CombinedActions.Utility
         private static void AddCombinedActionsBooleanTo1DAxisAction()
         {
             string prefab = prefabCombinedActionsBooleanTo1DAxisAction + prefabSuffix;
+            string packageLocation = Path.Combine(packageRoot, package, baseDirectory, prefabDirectory, prefab);
+            CreatePrefab(packageLocation);
+        }
+
+        [MenuItem(menuItemRoot + prefabCombinedActionsDoubleClickAction, false, priority)]
+        private static void AddCombinedActionsDoubleClickAction()
+        {
+            string prefab = prefabCombinedActionsDoubleClickAction + prefabSuffix;
             string packageLocation = Path.Combine(packageRoot, package, baseDirectory, prefabDirectory, prefab);
             CreatePrefab(packageLocation);
         }
