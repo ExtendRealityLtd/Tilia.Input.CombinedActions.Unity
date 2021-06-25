@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.10.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.10.0...v1.10.1) (2021-06-25)
+
+#### Bug Fixes
+
+* **DoubleClickAction:** add prefab creator menu option ([fc5691a](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/fc5691a0b7182bc7a2522db6eb9755091c117cb2))
+  > The prefab creator menu option was missing for the DoubleClickAction, this has now been added.
+
 ## [1.10.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.9.5...v1.10.0) (2021-06-25)
 
 #### Features
