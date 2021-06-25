@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.9.5...v1.10.0) (2021-06-25)
+
+#### Features
+
+* **prefab:** add double click action ([3be23f7](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/3be23f797f62bd79536c2f1ce7f4d9504111bc82))
+  > The double click action takes an input action and will only execute when that action has executed twice within a given duration, which simulates a double click occurring.
+
 ### [1.9.5](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.9.4...v1.9.5) (2021-06-24)
 
 #### Miscellaneous Chores
