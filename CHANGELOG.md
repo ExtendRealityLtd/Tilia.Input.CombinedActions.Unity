@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.10.11...v1.11.0) (2022-03-02)
+
+#### Features
+
+* **package.json:** add information urls to package ([3bad8fd](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/3bad8fd18c9887022f86c4559c927b8a881cd75d))
+  > The changelog, documentation and license url has been added to the package.json as these are used within the Unity package manager.
+
 ### [1.10.11](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v1.10.10...v1.10.11) (2022-02-14)
 
 #### Miscellaneous Chores
