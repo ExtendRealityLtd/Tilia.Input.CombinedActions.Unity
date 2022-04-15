@@ -8,12 +8,7 @@
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
-    "precompiledReferences": [
-        "Malimbe.XmlDocumentationAttribute.dll",
-        "Malimbe.PropertySerializationAttribute.dll",
-        "Malimbe.MemberChangeMethod.dll",
-        "Malimbe.MemberClearanceMethod.dll"
-    ],
+    "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": []
 }

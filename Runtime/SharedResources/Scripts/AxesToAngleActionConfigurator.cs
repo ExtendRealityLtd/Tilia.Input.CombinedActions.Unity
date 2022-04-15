@@ -1,7 +1,5 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
-    using Malimbe.PropertySerializationAttribute;
-    using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
@@ -15,45 +13,119 @@
     public class AxesToAngleActionConfigurator : MonoBehaviour
     {
         #region Axis Settings
+        [Header("Axis Settings")]
+        [Tooltip("The FloatAction that represents the Horizontal Axis.")]
+        [SerializeField]
+        [Restricted]
+        private FloatAction horizontalAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> that represents the Horizontal Axis.
         /// </summary>
-        [Serialized]
-        [field: Header("Axis Settings"), DocumentedByXml, Restricted]
-        public FloatAction HorizontalAxis { get; set; }
+        public FloatAction HorizontalAxis
+        {
+            get
+            {
+                return horizontalAxis;
+            }
+            set
+            {
+                horizontalAxis = value;
+            }
+        }
+        [Tooltip("The FloatAction that represents the Vertical Axis.")]
+        [SerializeField]
+        [Restricted]
+        private FloatAction verticalAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> that represents the Vertical Axis.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatAction VerticalAxis { get; set; }
+        public FloatAction VerticalAxis
+        {
+            get
+            {
+                return verticalAxis;
+            }
+            set
+            {
+                verticalAxis = value;
+            }
+        }
         #endregion
 
         #region Reference Settings
+        [Header("Reference Settings")]
+        [Tooltip("The horizontal deadzone controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean horizontalDeadZone;
         /// <summary>
         /// The horizontal deadzone controller.
         /// </summary>
-        [Serialized]
-        [field: Header("Reference Settings"), DocumentedByXml, Restricted]
-        public FloatToBoolean HorizontalDeadZone { get; set; }
+        public FloatToBoolean HorizontalDeadZone
+        {
+            get
+            {
+                return horizontalDeadZone;
+            }
+            set
+            {
+                horizontalDeadZone = value;
+            }
+        }
+        [Tooltip("The vertical deadzone controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean verticalDeadZone;
         /// <summary>
         /// The vertical deadzone controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean VerticalDeadZone { get; set; }
+        public FloatToBoolean VerticalDeadZone
+        {
+            get
+            {
+                return verticalDeadZone;
+            }
+            set
+            {
+                verticalDeadZone = value;
+            }
+        }
+        [Tooltip("The direction extractor for the direction offset.")]
+        [SerializeField]
+        [Restricted]
+        private TransformDirectionExtractor directionExtractor;
         /// <summary>
         /// The direction extractor for the direction offset.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public TransformDirectionExtractor DirectionExtractor { get; set; }
+        public TransformDirectionExtractor DirectionExtractor
+        {
+            get
+            {
+                return directionExtractor;
+            }
+            set
+            {
+                directionExtractor = value;
+            }
+        }
+        [Tooltip("The vector2 to angle converter.")]
+        [SerializeField]
+        [Restricted]
+        private Vector2ToAngle angleConverter;
         /// <summary>
         /// The vector2 to angle converter.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public Vector2ToAngle AngleConverter { get; set; }
+        public Vector2ToAngle AngleConverter
+        {
+            get
+            {
+                return angleConverter;
+            }
+            set
+            {
+                angleConverter = value;
+            }
+        }
         #endregion
 
         /// <summary>

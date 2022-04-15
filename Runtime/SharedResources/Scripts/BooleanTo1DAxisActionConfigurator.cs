@@ -1,7 +1,5 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
-    using Malimbe.PropertySerializationAttribute;
-    using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
@@ -12,18 +10,43 @@
     public class BooleanTo1DAxisActionConfigurator : MonoBehaviour
     {
         #region Axis Settings
+        [Header("Axis Settings")]
+        [Tooltip("The BooleanAction that represents the negative direction of the Axis.")]
+        [SerializeField]
+        [Restricted]
+        private BooleanAction negativeInput;
         /// <summary>
         /// The <see cref="BooleanAction"/> that represents the negative direction of the Axis.
         /// </summary>
-        [Serialized]
-        [field: Header("Axis Settings"), DocumentedByXml, Restricted]
-        public BooleanAction NegativeInput { get; set; }
+        public BooleanAction NegativeInput
+        {
+            get
+            {
+                return negativeInput;
+            }
+            set
+            {
+                negativeInput = value;
+            }
+        }
+        [Tooltip("The BooleanAction that represents the positive direction of the Axis.")]
+        [SerializeField]
+        [Restricted]
+        private BooleanAction positiveInput;
         /// <summary>
         /// The <see cref="BooleanAction"/> that represents the positive direction of the Axis.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public BooleanAction PositiveInput { get; set; }
+        public BooleanAction PositiveInput
+        {
+            get
+            {
+                return positiveInput;
+            }
+            set
+            {
+                positiveInput = value;
+            }
+        }
         #endregion
 
         /// <summary>

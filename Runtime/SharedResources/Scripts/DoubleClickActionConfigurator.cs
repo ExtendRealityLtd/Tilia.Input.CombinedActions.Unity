@@ -1,7 +1,5 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
-    using Malimbe.PropertySerializationAttribute;
-    using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
@@ -14,45 +12,119 @@
     public class DoubleClickActionConfigurator : MonoBehaviour
     {
         #region Facade Settings
+        [Header("Facade Settings")]
+        [Tooltip("The public interface facade.")]
+        [SerializeField]
+        [Restricted]
+        private DoubleClickActionFacade facade;
         /// <summary>
         /// The public interface facade.
         /// </summary>
-        [Serialized]
-        [field: Header("Facade Settings"), DocumentedByXml, Restricted]
-        public DoubleClickActionFacade Facade { get; protected set; }
+        public DoubleClickActionFacade Facade
+        {
+            get
+            {
+                return facade;
+            }
+            protected set
+            {
+                facade = value;
+            }
+        }
         #endregion
 
         #region Reference Settings
+        [Header("Reference Settings")]
+        [Tooltip("The BooleanAction that handles the first click state.")]
+        [SerializeField]
+        [Restricted]
+        private BooleanAction firstClickAction;
         /// <summary>
         /// The <see cref="BooleanAction"/> that handles the first click state.
         /// </summary>
-        [Serialized]
-        [field: Header("Reference Settings"), DocumentedByXml, Restricted]
-        public BooleanAction FirstClickAction { get; protected set; }
+        public BooleanAction FirstClickAction
+        {
+            get
+            {
+                return firstClickAction;
+            }
+            protected set
+            {
+                firstClickAction = value;
+            }
+        }
+        [Tooltip("The BooleanAction that handles the second click state.")]
+        [SerializeField]
+        [Restricted]
+        private BooleanAction secondClickAction;
         /// <summary>
         /// The <see cref="BooleanAction"/> that handles the second click state.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public BooleanAction SecondClickAction { get; protected set; }
+        public BooleanAction SecondClickAction
+        {
+            get
+            {
+                return secondClickAction;
+            }
+            protected set
+            {
+                secondClickAction = value;
+            }
+        }
+        [Tooltip("The BooleanAction that handles the final double click state.")]
+        [SerializeField]
+        [Restricted]
+        private BooleanAction doubleClickAction;
         /// <summary>
         /// The <see cref="BooleanAction"/> that handles the final double click state.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public BooleanAction DoubleClickAction { get; protected set; }
+        public BooleanAction DoubleClickAction
+        {
+            get
+            {
+                return doubleClickAction;
+            }
+            protected set
+            {
+                doubleClickAction = value;
+            }
+        }
+        [Tooltip("The BooleanAction that handles the final output state.")]
+        [SerializeField]
+        [Restricted]
+        private BooleanAction outputAction;
         /// <summary>
         /// The <see cref="BooleanAction"/> that handles the final output state.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public BooleanAction OutputAction { get; protected set; }
+        public BooleanAction OutputAction
+        {
+            get
+            {
+                return outputAction;
+            }
+            protected set
+            {
+                outputAction = value;
+            }
+        }
+        [Tooltip("The CountdownTimer that handles the delay between clicks.")]
+        [SerializeField]
+        [Restricted]
+        private CountdownTimer clickTimer;
         /// <summary>
         /// The <see cref="CountdownTimer"/> that handles the delay between clicks.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public CountdownTimer ClickTimer { get; protected set; }
+        public CountdownTimer ClickTimer
+        {
+            get
+            {
+                return clickTimer;
+            }
+            protected set
+            {
+                clickTimer = value;
+            }
+        }
         #endregion
 
         /// <summary>

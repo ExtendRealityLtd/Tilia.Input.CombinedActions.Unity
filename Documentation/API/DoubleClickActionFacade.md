@@ -12,6 +12,7 @@ Controls the BooleanAction state based on whether the given input action has bee
   * [Configuration]
   * [ControlAction]
 * [Methods]
+  * [ClearControlAction()]
   * [OnAfterClickDurationChange()]
   * [OnAfterControlActionChange()]
 
@@ -66,6 +67,16 @@ public BooleanAction ControlAction { get; set; }
 
 ### Methods
 
+#### ClearControlAction()
+
+Clears [ControlAction].
+
+##### Declaration
+
+```
+public virtual void ClearControlAction()
+```
+
 #### OnAfterClickDurationChange()
 
 Called after [ClickDuration] has been changed.
@@ -88,6 +99,7 @@ protected virtual void OnAfterControlActionChange()
 
 [Tilia.Input.CombinedActions]: README.md
 [DoubleClickActionConfigurator]: DoubleClickActionConfigurator.md
+[ControlAction]: DoubleClickActionFacade.md#ControlAction
 [ClickDuration]: DoubleClickActionFacade.md#ClickDuration
 [ControlAction]: DoubleClickActionFacade.md#ControlAction
 [Inheritance]: #Inheritance
@@ -98,5 +110,6 @@ protected virtual void OnAfterControlActionChange()
 [Configuration]: #Configuration
 [ControlAction]: #ControlAction
 [Methods]: #Methods
+[ClearControlAction()]: #ClearControlAction
 [OnAfterClickDurationChange()]: #OnAfterClickDurationChange
 [OnAfterControlActionChange()]: #OnAfterControlActionChange

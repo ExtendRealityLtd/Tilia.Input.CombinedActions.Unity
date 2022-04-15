@@ -15,6 +15,9 @@ Converts a the given axis data into an output angle.
   * [VerticalAxis]
   * [VerticalDeadzone]
 * [Methods]
+  * [ClearDirectionOffset()]
+  * [ClearHorizontalAxis()]
+  * [ClearVerticalAxis()]
   * [OnAfterDirectionOffsetChange()]
   * [OnAfterHorizontalAxisChange()]
   * [OnAfterHorizontalDeadzoneChange()]
@@ -106,6 +109,36 @@ public FloatRange VerticalDeadzone { get; set; }
 ```
 
 ### Methods
+
+#### ClearDirectionOffset()
+
+Clears [DirectionOffset].
+
+##### Declaration
+
+```
+public virtual void ClearDirectionOffset()
+```
+
+#### ClearHorizontalAxis()
+
+Clears [HorizontalAxis].
+
+##### Declaration
+
+```
+public virtual void ClearHorizontalAxis()
+```
+
+#### ClearVerticalAxis()
+
+Clears [VerticalAxis].
+
+##### Declaration
+
+```
+public virtual void ClearVerticalAxis()
+```
 
 #### OnAfterDirectionOffsetChange()
 
@@ -233,6 +266,9 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [AxesToAngleActionConfigurator]: AxesToAngleActionConfigurator.md
 [DirectionOffset]: AxesToAngleAction.md#DirectionOffset
 [HorizontalAxis]: AxesToAngleAction.md#HorizontalAxis
+[VerticalAxis]: AxesToAngleAction.md#VerticalAxis
+[DirectionOffset]: AxesToAngleAction.md#DirectionOffset
+[HorizontalAxis]: AxesToAngleAction.md#HorizontalAxis
 [HorizontalDeadzone]: AxesToAngleAction.md#HorizontalDeadzone
 [VerticalAxis]: AxesToAngleAction.md#VerticalAxis
 [VerticalDeadzone]: AxesToAngleAction.md#VerticalDeadzone
@@ -251,6 +287,9 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [VerticalAxis]: #VerticalAxis
 [VerticalDeadzone]: #VerticalDeadzone
 [Methods]: #Methods
+[ClearDirectionOffset()]: #ClearDirectionOffset
+[ClearHorizontalAxis()]: #ClearHorizontalAxis
+[ClearVerticalAxis()]: #ClearVerticalAxis
 [OnAfterDirectionOffsetChange()]: #OnAfterDirectionOffsetChange
 [OnAfterHorizontalAxisChange()]: #OnAfterHorizontalAxisChange
 [OnAfterHorizontalDeadzoneChange()]: #OnAfterHorizontalDeadzoneChange

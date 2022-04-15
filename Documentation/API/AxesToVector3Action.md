@@ -20,6 +20,9 @@ Converts a lateral, vertical and longitudinal float representation into a Vector
   * [VerticalAxis]
   * [VerticalDeadzone]
 * [Methods]
+  * [ClearLateralAxis()]
+  * [ClearLongitudinalAxis()]
+  * [ClearVerticalAxis()]
   * [OnAfterDeadzoneCalculationChange()]
   * [OnAfterInputTypeChange()]
   * [OnAfterLateralAxisChange()]
@@ -174,6 +177,36 @@ public FloatRange VerticalDeadzone { get; set; }
 ```
 
 ### Methods
+
+#### ClearLateralAxis()
+
+Clears [LateralAxis].
+
+##### Declaration
+
+```
+public virtual void ClearLateralAxis()
+```
+
+#### ClearLongitudinalAxis()
+
+Clears [LongitudinalAxis].
+
+##### Declaration
+
+```
+public virtual void ClearLongitudinalAxis()
+```
+
+#### ClearVerticalAxis()
+
+Clears [VerticalAxis].
+
+##### Declaration
+
+```
+public virtual void ClearVerticalAxis()
+```
 
 #### OnAfterDeadzoneCalculationChange()
 
@@ -477,6 +510,9 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 
 [Tilia.Input.CombinedActions]: README.md
 [AxesToVector3ActionConfigurator]: AxesToVector3ActionConfigurator.md
+[LateralAxis]: AxesToVector3Action.md#LateralAxis
+[LongitudinalAxis]: AxesToVector3Action.md#LongitudinalAxis
+[VerticalAxis]: AxesToVector3Action.md#VerticalAxis
 [DeadzoneCalculation]: AxesToVector3Action.md#DeadzoneCalculation
 [InputType]: AxesToVector3Action.md#InputType
 [LateralAxis]: AxesToVector3Action.md#LateralAxis
@@ -517,6 +553,9 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [VerticalAxis]: #VerticalAxis
 [VerticalDeadzone]: #VerticalDeadzone
 [Methods]: #Methods
+[ClearLateralAxis()]: #ClearLateralAxis
+[ClearLongitudinalAxis()]: #ClearLongitudinalAxis
+[ClearVerticalAxis()]: #ClearVerticalAxis
 [OnAfterDeadzoneCalculationChange()]: #OnAfterDeadzoneCalculationChange
 [OnAfterInputTypeChange()]: #OnAfterInputTypeChange
 [OnAfterLateralAxisChange()]: #OnAfterLateralAxisChange

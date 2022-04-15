@@ -12,6 +12,8 @@ Converts a positive and negative boolean representation into a 1D axis float act
   * [NegativeInput]
   * [PositiveInput]
 * [Methods]
+  * [ClearNegativeInput()]
+  * [ClearPositiveInput()]
   * [OnAfterNegativeInputChange()]
   * [OnAfterPositiveInputChange()]
   * [OnEnable()]
@@ -67,6 +69,26 @@ public BooleanAction PositiveInput { get; set; }
 
 ### Methods
 
+#### ClearNegativeInput()
+
+Clears [NegativeInput].
+
+##### Declaration
+
+```
+public virtual void ClearNegativeInput()
+```
+
+#### ClearPositiveInput()
+
+Clears [PositiveInput].
+
+##### Declaration
+
+```
+public virtual void ClearPositiveInput()
+```
+
 #### OnAfterNegativeInputChange()
 
 Called after [NegativeInput] has been changed.
@@ -99,6 +121,8 @@ protected override void OnEnable()
 [BooleanTo1DAxisActionConfigurator]: BooleanTo1DAxisActionConfigurator.md
 [NegativeInput]: BooleanTo1DAxisAction.md#NegativeInput
 [PositiveInput]: BooleanTo1DAxisAction.md#PositiveInput
+[NegativeInput]: BooleanTo1DAxisAction.md#NegativeInput
+[PositiveInput]: BooleanTo1DAxisAction.md#PositiveInput
 [Inheritance]: #Inheritance
 [Namespace]: #Namespace
 [Syntax]: #Syntax
@@ -107,6 +131,8 @@ protected override void OnEnable()
 [NegativeInput]: #NegativeInput
 [PositiveInput]: #PositiveInput
 [Methods]: #Methods
+[ClearNegativeInput()]: #ClearNegativeInput
+[ClearPositiveInput()]: #ClearPositiveInput
 [OnAfterNegativeInputChange()]: #OnAfterNegativeInputChange
 [OnAfterPositiveInputChange()]: #OnAfterPositiveInputChange
 [OnEnable()]: #OnEnable

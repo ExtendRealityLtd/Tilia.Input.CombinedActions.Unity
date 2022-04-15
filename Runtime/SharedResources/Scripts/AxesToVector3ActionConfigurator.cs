@@ -1,7 +1,5 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
-    using Malimbe.PropertySerializationAttribute;
-    using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
@@ -16,147 +14,425 @@
     public class AxesToVector3ActionConfigurator : MonoBehaviour
     {
         #region Axis Settings
+        [Header("Axis Settings")]
+        [Tooltip("The FloatAction representing the Lateral (X Axis)[left/right].")]
+        [SerializeField]
+        [Restricted]
+        private FloatAction lateralAction;
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Lateral (X Axis)[left/right].
         /// </summary>
-        [Serialized]
-        [field: Header("Axis Settings"), DocumentedByXml, Restricted]
-        public FloatAction LateralAction { get; set; }
+        public FloatAction LateralAction
+        {
+            get
+            {
+                return lateralAction;
+            }
+            set
+            {
+                lateralAction = value;
+            }
+        }
+        [Tooltip("The FloatAction representing the Vertical (Y Axis)[up/down].")]
+        [SerializeField]
+        [Restricted]
+        private FloatAction verticalAction;
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Vertical (Y Axis)[up/down].
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatAction VerticalAction { get; set; }
+        public FloatAction VerticalAction
+        {
+            get
+            {
+                return verticalAction;
+            }
+            set
+            {
+                verticalAction = value;
+            }
+        }
+        [Tooltip("The FloatAction representing the Longitudinal (Z Axis)[forward/backward].")]
+        [SerializeField]
+        [Restricted]
+        private FloatAction longitudinalAction;
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Longitudinal (Z Axis)[forward/backward].
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatAction LongitudinalAction { get; set; }
+        public FloatAction LongitudinalAction
+        {
+            get
+            {
+                return longitudinalAction;
+            }
+            set
+            {
+                longitudinalAction = value;
+            }
+        }
+        [Tooltip("Whether to automatically configure the deadzones and axis bounds.")]
+        [SerializeField]
+        [Restricted]
+        private bool autoConfigureBounds = true;
         /// <summary>
         /// Whether to automatically configure the deadzones and axis bounds.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml]
-        public bool AutoConfigureBounds { get; set; } = true;
+        public bool AutoConfigureBounds
+        {
+            get
+            {
+                return autoConfigureBounds;
+            }
+            set
+            {
+                autoConfigureBounds = value;
+            }
+        }
+        [Tooltip("The value to overlap the directional input bounds by.")]
+        [SerializeField]
+        [Restricted]
+        private float boundOverlap = 0.09f;
         /// <summary>
         /// The value to overlap the directional input bounds by.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml]
-        public float BoundOverlap { get; set; } = 0.09f;
+        public float BoundOverlap
+        {
+            get
+            {
+                return boundOverlap;
+            }
+            set
+            {
+                boundOverlap = value;
+            }
+        }
         #endregion
 
         #region Reference Settings
+        [Header("Reference Settings")]
+        [Tooltip("The collection used to multiply the output Vector3.")]
+        [SerializeField]
+        [Restricted]
+        private Vector3ObservableList multiplier;
         /// <summary>
         /// The collection used to multiply the output <see cref="Vector3"/>.
         /// </summary>
-        [Serialized]
-        [field: Header("Reference Settings"), DocumentedByXml, Restricted]
-        public Vector3ObservableList Multiplier { get; set; }
+        public Vector3ObservableList Multiplier
+        {
+            get
+            {
+                return multiplier;
+            }
+            set
+            {
+                multiplier = value;
+            }
+        }
+        [Tooltip("The container that holds the incremental input logic.")]
+        [SerializeField]
+        [Restricted]
+        private GameObject incrementalContainer;
         /// <summary>
         /// The container that holds the incremental input logic.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public GameObject IncrementalContainer { get; set; }
+        public GameObject IncrementalContainer
+        {
+            get
+            {
+                return incrementalContainer;
+            }
+            set
+            {
+                incrementalContainer = value;
+            }
+        }
+        [Tooltip("The container that holds the directional input logic.")]
+        [SerializeField]
+        [Restricted]
+        private GameObject directionalContainer;
         /// <summary>
         /// The container that holds the directional input logic.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public GameObject DirectionalContainer { get; set; }
+        public GameObject DirectionalContainer
+        {
+            get
+            {
+                return directionalContainer;
+            }
+            set
+            {
+                directionalContainer = value;
+            }
+        }
+        [Tooltip("The container that holds the single axis deadzone logic.")]
+        [SerializeField]
+        [Restricted]
+        private GameObject singleAxisDeadzoneContainer;
         /// <summary>
         /// The container that holds the single axis deadzone logic.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public GameObject SingleAxisDeadzoneContainer { get; set; }
+        public GameObject SingleAxisDeadzoneContainer
+        {
+            get
+            {
+                return singleAxisDeadzoneContainer;
+            }
+            set
+            {
+                singleAxisDeadzoneContainer = value;
+            }
+        }
+        [Tooltip("The container that holds the combined axis deadzone logic.")]
+        [SerializeField]
+        [Restricted]
+        private GameObject combinedAxisDeadzoneContainer;
         /// <summary>
         /// The container that holds the combined axis deadzone logic.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public GameObject CombinedAxisDeadzoneContainer { get; set; }
+        public GameObject CombinedAxisDeadzoneContainer
+        {
+            get
+            {
+                return combinedAxisDeadzoneContainer;
+            }
+            set
+            {
+                combinedAxisDeadzoneContainer = value;
+            }
+        }
+        [Tooltip("The lateral deadzone controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean[] lateralDeadZone = new FloatToBoolean[0];
         /// <summary>
         /// The lateral deadzone controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean[] LateralDeadZone { get; set; }
+        public FloatToBoolean[] LateralDeadZone
+        {
+            get
+            {
+                return lateralDeadZone;
+            }
+            set
+            {
+                lateralDeadZone = value;
+            }
+        }
+        [Tooltip("The lateral positive bounds controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean lateralPositiveBounds;
         /// <summary>
         /// The lateral positive bounds controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LateralPositiveBounds { get; set; }
+        public FloatToBoolean LateralPositiveBounds
+        {
+            get
+            {
+                return lateralPositiveBounds;
+            }
+            set
+            {
+                lateralPositiveBounds = value;
+            }
+        }
+        [Tooltip("The lateral negative bounds controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean lateralNegativeBounds;
         /// <summary>
         /// The lateral negative bounds controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LateralNegativeBounds { get; set; }
+        public FloatToBoolean LateralNegativeBounds
+        {
+            get
+            {
+                return lateralNegativeBounds;
+            }
+            set
+            {
+                lateralNegativeBounds = value;
+            }
+        }
+        [Tooltip("The lateral bounds manager.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean lateralBoundsManager;
         /// <summary>
         /// The lateral bounds manager.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LateralBoundsManager { get; set; }
+        public FloatToBoolean LateralBoundsManager
+        {
+            get
+            {
+                return lateralBoundsManager;
+            }
+            set
+            {
+                lateralBoundsManager = value;
+            }
+        }
+        [Tooltip("The vertical deadzone controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean[] verticalDeadZone = new FloatToBoolean[0];
         /// <summary>
         /// The vertical deadzone controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean[] VerticalDeadZone { get; set; }
+        public FloatToBoolean[] VerticalDeadZone
+        {
+            get
+            {
+                return verticalDeadZone;
+            }
+            set
+            {
+                verticalDeadZone = value;
+            }
+        }
+        [Tooltip("The vertical positive bounds controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean verticalPositiveBounds;
         /// <summary>
         /// The vertical positive bounds controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean VerticalPositiveBounds { get; set; }
+        public FloatToBoolean VerticalPositiveBounds
+        {
+            get
+            {
+                return verticalPositiveBounds;
+            }
+            set
+            {
+                verticalPositiveBounds = value;
+            }
+        }
+        [Tooltip("The vertical negative bounds controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean verticalNegativeBounds;
         /// <summary>
         /// The vertical negative bounds controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean VerticalNegativeBounds { get; set; }
+        public FloatToBoolean VerticalNegativeBounds
+        {
+            get
+            {
+                return verticalNegativeBounds;
+            }
+            set
+            {
+                verticalNegativeBounds = value;
+            }
+        }
+        [Tooltip("The vertical bounds manager.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean verticalBoundsManager;
         /// <summary>
         /// The vertical bounds manager.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean VerticalBoundsManager { get; set; }
+        public FloatToBoolean VerticalBoundsManager
+        {
+            get
+            {
+                return verticalBoundsManager;
+            }
+            set
+            {
+                verticalBoundsManager = value;
+            }
+        }
+        [Tooltip("The longitudinal deadzone controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean[] longitudinalDeadZone = new FloatToBoolean[0];
         /// <summary>
         /// The longitudinal deadzone controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean[] LongitudinalDeadZone { get; set; }
+        public FloatToBoolean[] LongitudinalDeadZone
+        {
+            get
+            {
+                return longitudinalDeadZone;
+            }
+            set
+            {
+                longitudinalDeadZone = value;
+            }
+        }
+        [Tooltip("The longitudinal positive bounds controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean longitudinalPositiveBounds;
         /// <summary>
         /// The longitudinal positive bounds controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LongitudinalPositiveBounds { get; set; }
+        public FloatToBoolean LongitudinalPositiveBounds
+        {
+            get
+            {
+                return longitudinalPositiveBounds;
+            }
+            set
+            {
+                longitudinalPositiveBounds = value;
+            }
+        }
+        [Tooltip("The longitudinal negative bounds controller.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean longitudinalNegativeBounds;
         /// <summary>
         /// The longitudinal negative bounds controller.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LongitudinalNegativeBounds { get; set; }
+        public FloatToBoolean LongitudinalNegativeBounds
+        {
+            get
+            {
+                return longitudinalNegativeBounds;
+            }
+            set
+            {
+                longitudinalNegativeBounds = value;
+            }
+        }
+        [Tooltip("The longitudinal bounds manager.")]
+        [SerializeField]
+        [Restricted]
+        private FloatToBoolean longitudinalBoundsManager;
         /// <summary>
         /// The longitudinal bounds manager.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public FloatToBoolean LongitudinalBoundsManager { get; set; }
+        public FloatToBoolean LongitudinalBoundsManager
+        {
+            get
+            {
+                return longitudinalBoundsManager;
+            }
+            set
+            {
+                longitudinalBoundsManager = value;
+            }
+        }
+        [Tooltip("Extracts a Time component.")]
+        [SerializeField]
+        [Restricted]
+        private TimeComponentExtractor timeExtractor;
         /// <summary>
         /// Extracts a <see cref="Time"/> component.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, Restricted]
-        public TimeComponentExtractor TimeExtractor { get; set; }
+        public TimeComponentExtractor TimeExtractor
+        {
+            get
+            {
+                return timeExtractor;
+            }
+            set
+            {
+                timeExtractor = value;
+            }
+        }
         #endregion
 
         /// <summary>
