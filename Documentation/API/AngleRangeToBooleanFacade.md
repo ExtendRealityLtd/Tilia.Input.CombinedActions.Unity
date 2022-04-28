@@ -16,6 +16,8 @@ The public interface into the AngleRangeToBoolean Prefab.
   * [VerticalAxis]
   * [VerticalDeadzone]
 * [Methods]
+  * [ClearHorizontalAxis()]
+  * [ClearVerticalAxis()]
   * [OnAfterAngleRangeChange()]
   * [OnAfterHorizontalAxisChange()]
   * [OnAfterHorizontalDeadzoneChange()]
@@ -120,6 +122,26 @@ public FloatRange VerticalDeadzone { get; set; }
 ```
 
 ### Methods
+
+#### ClearHorizontalAxis()
+
+Clears [HorizontalAxis].
+
+##### Declaration
+
+```
+public virtual void ClearHorizontalAxis()
+```
+
+#### ClearVerticalAxis()
+
+Clears [VerticalAxis].
+
+##### Declaration
+
+```
+public virtual void ClearVerticalAxis()
+```
 
 #### OnAfterAngleRangeChange()
 
@@ -295,6 +317,8 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 
 [Tilia.Input.CombinedActions]: README.md
 [AngleRangeToBooleanConfigurator]: AngleRangeToBooleanConfigurator.md
+[HorizontalAxis]: AngleRangeToBooleanFacade.md#HorizontalAxis
+[VerticalAxis]: AngleRangeToBooleanFacade.md#VerticalAxis
 [AngleRange]: AngleRangeToBooleanFacade.md#AngleRange
 [HorizontalAxis]: AngleRangeToBooleanFacade.md#HorizontalAxis
 [HorizontalDeadzone]: AngleRangeToBooleanFacade.md#HorizontalDeadzone
@@ -320,6 +344,8 @@ public virtual void SetVerticalDeadzoneMinimum(float value)
 [VerticalAxis]: #VerticalAxis
 [VerticalDeadzone]: #VerticalDeadzone
 [Methods]: #Methods
+[ClearHorizontalAxis()]: #ClearHorizontalAxis
+[ClearVerticalAxis()]: #ClearVerticalAxis
 [OnAfterAngleRangeChange()]: #OnAfterAngleRangeChange
 [OnAfterHorizontalAxisChange()]: #OnAfterHorizontalAxisChange
 [OnAfterHorizontalDeadzoneChange()]: #OnAfterHorizontalDeadzoneChange

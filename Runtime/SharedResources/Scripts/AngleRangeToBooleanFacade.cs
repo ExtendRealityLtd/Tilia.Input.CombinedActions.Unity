@@ -1,9 +1,5 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
-    using Malimbe.MemberChangeMethod;
-    using Malimbe.MemberClearanceMethod;
-    using Malimbe.PropertySerializationAttribute;
-    using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
@@ -17,58 +13,193 @@
     public class AngleRangeToBooleanFacade : MonoBehaviour
     {
         #region Angle Settings
+        [Header("Angle Settings")]
+        [Tooltip("The range of the angle to consider true.")]
+        [SerializeField]
+        [MinMaxRange(-360f, 360f)]
+        private FloatRange angleRange = new FloatRange(-180f, 180f);
         /// <summary>
         /// The range of the angle to consider true.
         /// </summary>
-        [Serialized]
-        [field: Header("Angle Settings"), DocumentedByXml, MinMaxRange(-360f, 360f)]
-        public FloatRange AngleRange { get; set; } = new FloatRange(-180f, 180f);
+        public FloatRange AngleRange
+        {
+            get
+            {
+                return angleRange;
+            }
+            set
+            {
+                angleRange = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterAngleRangeChange();
+                }
+            }
+        }
+        [Tooltip("The units in which to determine the angle range in.")]
+        [SerializeField]
+        private Vector2ToAngle.AngleUnit unitType = Vector2ToAngle.AngleUnit.SignedDegrees;
         /// <summary>
         /// The units in which to determine the angle range in.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml]
-        public Vector2ToAngle.AngleUnit UnitType { get; set; } = Vector2ToAngle.AngleUnit.SignedDegrees;
+        public Vector2ToAngle.AngleUnit UnitType
+        {
+            get
+            {
+                return unitType;
+            }
+            set
+            {
+                unitType = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterUnitTypeChange();
+                }
+            }
+        }
         #endregion
 
         #region Axis Settings
+        [Header("Axis Settings")]
+        [Tooltip("The FloatAction that represents the Horizontal Axis.")]
+        [SerializeField]
+        private FloatAction horizontalAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> that represents the Horizontal Axis.
         /// </summary>
-        [Serialized, Cleared]
-        [field: Header("Axis Settings"), DocumentedByXml]
-        public FloatAction HorizontalAxis { get; set; }
+        public FloatAction HorizontalAxis
+        {
+            get
+            {
+                return horizontalAxis;
+            }
+            set
+            {
+                horizontalAxis = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterHorizontalAxisChange();
+                }
+            }
+        }
+        [Tooltip("The FloatAction that represents the Vertical Axis.")]
+        [SerializeField]
+        private FloatAction verticalAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> that represents the Vertical Axis.
         /// </summary>
-        [Serialized, Cleared]
-        [field: DocumentedByXml]
-        public FloatAction VerticalAxis { get; set; }
+        public FloatAction VerticalAxis
+        {
+            get
+            {
+                return verticalAxis;
+            }
+            set
+            {
+                verticalAxis = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterVerticalAxisChange();
+                }
+            }
+        }
         #endregion
 
         #region Deadzone Settings
+        [Header("Deadzone Settings")]
+        [Tooltip("The bounds in which the Horizontal Axis is considered inactive.")]
+        [SerializeField]
+        [MinMaxRange(-1f, 1f)]
+        private FloatRange horizontalDeadzone = new FloatRange(-0.75f, 0.75f);
         /// <summary>
         /// The bounds in which the Horizontal Axis is considered inactive.
         /// </summary>
-        [Serialized]
-        [field: Header("Deadzone Settings"), DocumentedByXml, MinMaxRange(-1f, 1f)]
-        public FloatRange HorizontalDeadzone { get; set; } = new FloatRange(-0.75f, 0.75f);
+        public FloatRange HorizontalDeadzone
+        {
+            get
+            {
+                return horizontalDeadzone;
+            }
+            set
+            {
+                horizontalDeadzone = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterHorizontalDeadzoneChange();
+                }
+            }
+        }
+        [Tooltip("The bounds in which the Vertical Axis is considered inactive.")]
+        [SerializeField]
+        [MinMaxRange(-1f, 1f)]
+        private FloatRange verticalDeadzone = new FloatRange(-0.75f, 0.75f);
         /// <summary>
         /// The bounds in which the Vertical Axis is considered inactive.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, MinMaxRange(-1f, 1f)]
-        public FloatRange VerticalDeadzone { get; set; } = new FloatRange(-0.75f, 0.75f);
+        public FloatRange VerticalDeadzone
+        {
+            get
+            {
+                return verticalDeadzone;
+            }
+            set
+            {
+                verticalDeadzone = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterVerticalDeadzoneChange();
+                }
+            }
+        }
         #endregion
 
         #region Reference Settings
+        [Header("Reference Settings")]
+        [Tooltip("The linked Internal Setup.")]
+        [SerializeField]
+        [Restricted]
+        private AngleRangeToBooleanConfigurator configuration;
         /// <summary>
         /// The linked Internal Setup.
         /// </summary>
-        [Serialized]
-        [field: Header("Reference Settings"), DocumentedByXml, Restricted]
-        public AngleRangeToBooleanConfigurator Configuration { get; protected set; }
+        public AngleRangeToBooleanConfigurator Configuration
+        {
+            get
+            {
+                return configuration;
+            }
+            protected set
+            {
+                configuration = value;
+            }
+        }
         #endregion
+
+        /// <summary>
+        /// Clears <see cref="HorizontalAxis"/>.
+        /// </summary>
+        public virtual void ClearHorizontalAxis()
+        {
+            if (!this.IsValidState())
+            {
+                return;
+            }
+
+            HorizontalAxis = default;
+        }
+
+        /// <summary>
+        /// Clears <see cref="VerticalAxis"/>.
+        /// </summary>
+        public virtual void ClearVerticalAxis()
+        {
+            if (!this.IsValidState())
+            {
+                return;
+            }
+
+            VerticalAxis = default;
+        }
 
         /// <summary>
         /// Sets the <see cref="AngleRange"/> minimum value.
@@ -148,7 +279,6 @@
         /// <summary>
         /// Called after <see cref="AngleRange"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(AngleRange))]
         protected virtual void OnAfterAngleRangeChange()
         {
             Configuration.ConfigureAngleChecker();
@@ -157,7 +287,6 @@
         /// <summary>
         /// Called after <see cref="UnitType"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(UnitType))]
         protected virtual void OnAfterUnitTypeChange()
         {
             Configuration.ConfigureAngleInput();
@@ -166,7 +295,6 @@
         /// <summary>
         /// Called after <see cref="HorizontalAxis"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(HorizontalAxis))]
         protected virtual void OnAfterHorizontalAxisChange()
         {
             Configuration.ConfigureAngleInput();
@@ -175,7 +303,6 @@
         /// <summary>
         /// Called after <see cref="VerticalAxis"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(VerticalAxis))]
         protected virtual void OnAfterVerticalAxisChange()
         {
             Configuration.ConfigureAngleInput();
@@ -184,7 +311,6 @@
         /// <summary>
         /// Called after <see cref="HorizontalDeadzone"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(HorizontalDeadzone))]
         protected virtual void OnAfterHorizontalDeadzoneChange()
         {
             Configuration.ConfigureAngleInput();
@@ -193,7 +319,6 @@
         /// <summary>
         /// Called after <see cref="VerticalDeadzone"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(VerticalDeadzone))]
         protected virtual void OnAfterVerticalDeadzoneChange()
         {
             Configuration.ConfigureAngleInput();

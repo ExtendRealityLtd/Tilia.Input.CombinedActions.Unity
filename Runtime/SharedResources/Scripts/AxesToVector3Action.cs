@@ -1,9 +1,5 @@
 ﻿namespace Tilia.Input.CombinedActions
 {
-    using Malimbe.MemberChangeMethod;
-    using Malimbe.MemberClearanceMethod;
-    using Malimbe.PropertySerializationAttribute;
-    using Malimbe.XmlDocumentationAttribute;
     using UnityEngine;
     using Zinnia.Action;
     using Zinnia.Data.Attribute;
@@ -47,79 +43,286 @@
         }
 
         #region Axis Settings
+        [Header("Axis Settings")]
+        [Tooltip("Determines how to handle the axis input data to control the Vector3 output.")]
+        [SerializeField]
+        private InputHandler inputType = InputHandler.Incremental;
         /// <summary>
         /// Determines how to handle the axis input data to control the <see cref="Vector3"/> output.
         /// </summary>
-        [Serialized]
-        [field: Header("Axis Settings"), DocumentedByXml]
-        public InputHandler InputType { get; set; } = InputHandler.Incremental;
+        public InputHandler InputType
+        {
+            get
+            {
+                return inputType;
+            }
+            set
+            {
+                inputType = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterInputTypeChange();
+                }
+            }
+        }
+        [Tooltip("The FloatAction representing the Lateral (X Axis)[left/right].")]
+        [SerializeField]
+        private FloatAction lateralAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Lateral (X Axis)[left/right].
         /// </summary>
-        [Serialized, Cleared]
-        [field: DocumentedByXml]
-        public FloatAction LateralAxis { get; set; }
+        public FloatAction LateralAxis
+        {
+            get
+            {
+                return lateralAxis;
+            }
+            set
+            {
+                lateralAxis = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterLateralAxisChange();
+                }
+            }
+        }
+        [Tooltip("The FloatAction representing the Vertical (Y Axis)[up/down].")]
+        [SerializeField]
+        private FloatAction verticalAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Vertical (Y Axis)[up/down].
         /// </summary>
-        [Serialized, Cleared]
-        [field: DocumentedByXml]
-        public FloatAction VerticalAxis { get; set; }
+        public FloatAction VerticalAxis
+        {
+            get
+            {
+                return verticalAxis;
+            }
+            set
+            {
+                verticalAxis = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterVerticalAxisChange();
+                }
+            }
+        }
+        [Tooltip("The FloatAction representing the Longitudinal (Z Axis)[forward/backward].")]
+        [SerializeField]
+        private FloatAction longitudinalAxis;
         /// <summary>
         /// The <see cref="FloatAction"/> representing the Longitudinal (Z Axis)[forward/backward].
         /// </summary>
-        [Serialized, Cleared]
-        [field: DocumentedByXml]
-        public FloatAction LongitudinalAxis { get; set; }
+        public FloatAction LongitudinalAxis
+        {
+            get
+            {
+                return longitudinalAxis;
+            }
+            set
+            {
+                longitudinalAxis = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterLongitudinalAxisChange();
+                }
+            }
+        }
+        [Tooltip("Multiply the output values.")]
+        [SerializeField]
+        private Vector3 multiplier = Vector3.one;
         /// <summary>
         /// Multiply the output values.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml]
-        public Vector3 Multiplier { get; set; } = Vector3.one;
+        public Vector3 Multiplier
+        {
+            get
+            {
+                return multiplier;
+            }
+            set
+            {
+                multiplier = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterMultiplierChange();
+                }
+            }
+        }
+        [Tooltip("Multiply the output values by this Time component.")]
+        [SerializeField]
+        private TimeComponentExtractor.TimeComponent timeMultiplier = TimeComponentExtractor.TimeComponent.Time;
         /// <summary>
         /// Multiply the output values by this <see cref="Time"/> component.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml]
-        public TimeComponentExtractor.TimeComponent TimeMultiplier { get; set; } = TimeComponentExtractor.TimeComponent.Time;
+        public TimeComponentExtractor.TimeComponent TimeMultiplier
+        {
+            get
+            {
+                return timeMultiplier;
+            }
+            set
+            {
+                timeMultiplier = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterTimeMultiplierChange();
+                }
+            }
+        }
         #endregion
 
         #region Deadzone Settings
+        [Header("Deadzone Settings")]
+        [Tooltip("The way in which the deadzone is calculated by the input axes.")]
+        [SerializeField]
+        private DeadzoneType deadzoneCalculation = DeadzoneType.SingleAxis;
         /// <summary>
         /// The way in which the deadzone is calculated by the input axes.
         /// </summary>
-        [Serialized]
-        [field: Header("Deadzone Settings"), DocumentedByXml]
-        public DeadzoneType DeadzoneCalculation { get; set; } = DeadzoneType.SingleAxis;
+        public DeadzoneType DeadzoneCalculation
+        {
+            get
+            {
+                return deadzoneCalculation;
+            }
+            set
+            {
+                deadzoneCalculation = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterDeadzoneCalculationChange();
+                }
+            }
+        }
+        [Tooltip("The bounds in which the Lateral Axis is considered inactive.")]
+        [SerializeField]
+        [MinMaxRange(-1f, 1f)]
+        private FloatRange lateralDeadzone = new FloatRange(-0.5f, 0.5f);
         /// <summary>
         /// The bounds in which the Lateral Axis is considered inactive.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, MinMaxRange(-1f, 1f)]
-        public FloatRange LateralDeadzone { get; set; } = new FloatRange(-0.5f, 0.5f);
+        public FloatRange LateralDeadzone
+        {
+            get
+            {
+                return lateralDeadzone;
+            }
+            set
+            {
+                lateralDeadzone = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterLateralDeadzoneChange();
+                }
+            }
+        }
+        [Tooltip("The bounds in which the Vertical Axis is considered inactive.")]
+        [SerializeField]
+        [MinMaxRange(-1f, 1f)]
+        private FloatRange verticalDeadzone = new FloatRange(-0.5f, 0.5f);
         /// <summary>
         /// The bounds in which the Vertical Axis is considered inactive.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, MinMaxRange(-1f, 1f)]
-        public FloatRange VerticalDeadzone { get; set; } = new FloatRange(-0.5f, 0.5f);
+        public FloatRange VerticalDeadzone
+        {
+            get
+            {
+                return verticalDeadzone;
+            }
+            set
+            {
+                verticalDeadzone = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterVerticalDeadzoneChange();
+                }
+            }
+        }
+        [Tooltip("The bounds in which the Longitudinal Axis is considered inactive.")]
+        [SerializeField]
+        [MinMaxRange(-1f, 1f)]
+        private FloatRange longitudinalDeadzone = new FloatRange(-0.5f, 0.5f);
         /// <summary>
         /// The bounds in which the Longitudinal Axis is considered inactive.
         /// </summary>
-        [Serialized]
-        [field: DocumentedByXml, MinMaxRange(-1f, 1f)]
-        public FloatRange LongitudinalDeadzone { get; set; } = new FloatRange(-0.5f, 0.5f);
+        public FloatRange LongitudinalDeadzone
+        {
+            get
+            {
+                return longitudinalDeadzone;
+            }
+            set
+            {
+                longitudinalDeadzone = value;
+                if (this.IsMemberChangeAllowed())
+                {
+                    OnAfterLongitudinalDeadzoneChange();
+                }
+            }
+        }
         #endregion
 
         #region Reference Settings
+        [Header("Reference Settings")]
+        [Tooltip("The linked Internal Setup.")]
+        [SerializeField]
+        [Restricted]
+        private AxesToVector3ActionConfigurator configuration;
         /// <summary>
         /// The linked Internal Setup.
         /// </summary>
-        [Serialized]
-        [field: Header("Reference Settings"), DocumentedByXml, Restricted]
-        public AxesToVector3ActionConfigurator Configuration { get; protected set; }
+        public AxesToVector3ActionConfigurator Configuration
+        {
+            get
+            {
+                return configuration;
+            }
+            protected set
+            {
+                configuration = value;
+            }
+        }
         #endregion
+
+        /// <summary>
+        /// Clears <see cref="LateralAxis"/>.
+        /// </summary>
+        public virtual void ClearLateralAxis()
+        {
+            if (!this.IsValidState())
+            {
+                return;
+            }
+
+            LateralAxis = default;
+        }
+
+        /// <summary>
+        /// Clears <see cref="VerticalAxis"/>.
+        /// </summary>
+        public virtual void ClearVerticalAxis()
+        {
+            if (!this.IsValidState())
+            {
+                return;
+            }
+
+            VerticalAxis = default;
+        }
+
+        /// <summary>
+        /// Clears <see cref="LongitudinalAxis"/>.
+        /// </summary>
+        public virtual void ClearLongitudinalAxis()
+        {
+            if (!this.IsValidState())
+            {
+                return;
+            }
+
+            LongitudinalAxis = default;
+        }
 
         /// <summary>
         /// Sets <see cref="InputType"/>.
@@ -259,7 +462,6 @@
         /// <summary>
         /// Called after <see cref="InputType"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(InputType))]
         protected virtual void OnAfterInputTypeChange()
         {
             Configuration.SetInputType(InputType);
@@ -268,7 +470,6 @@
         /// <summary>
         /// Called after <see cref="LateralAxis"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(LateralAxis))]
         protected virtual void OnAfterLateralAxisChange()
         {
             Configuration.SetLateralAxisSource(LateralAxis);
@@ -277,7 +478,6 @@
         /// <summary>
         /// Called after <see cref="VerticalAxis"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(VerticalAxis))]
         protected virtual void OnAfterVerticalAxisChange()
         {
             Configuration.SetVerticalAxisSource(VerticalAxis);
@@ -286,7 +486,6 @@
         /// <summary>
         /// Called after <see cref="LongitudinalAxis"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(LongitudinalAxis))]
         protected virtual void OnAfterLongitudinalAxisChange()
         {
             Configuration.SetLongitudinalAxisSource(LongitudinalAxis);
@@ -295,7 +494,6 @@
         /// <summary>
         /// Called after <see cref="Multiplier"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(Multiplier))]
         protected virtual void OnAfterMultiplierChange()
         {
             Configuration.SetMultiplier(Multiplier);
@@ -304,7 +502,6 @@
         /// <summary>
         /// Called after <see cref="TimeMultiplier"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(TimeMultiplier))]
         protected virtual void OnAfterTimeMultiplierChange()
         {
             Configuration.SetTimeMultiplier(TimeMultiplier);
@@ -313,7 +510,6 @@
         /// <summary>
         /// Called after <see cref="DeadzoneCalculation"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(DeadzoneCalculation))]
         protected virtual void OnAfterDeadzoneCalculationChange()
         {
             Configuration.SetDeadzoneCalculation(DeadzoneCalculation);
@@ -322,7 +518,6 @@
         /// <summary>
         /// Called after <see cref="LateralDeadzone"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(LateralDeadzone))]
         protected virtual void OnAfterLateralDeadzoneChange()
         {
             Configuration.SetLateralDeadzone(LateralDeadzone);
@@ -331,7 +526,6 @@
         /// <summary>
         /// Called after <see cref="VerticalDeadzone"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(VerticalDeadzone))]
         protected virtual void OnAfterVerticalDeadzoneChange()
         {
             Configuration.SetVerticalDeadzone(VerticalDeadzone);
@@ -340,7 +534,6 @@
         /// <summary>
         /// Called after <see cref="LongitudinalDeadzone"/> has been changed.
         /// </summary>
-        [CalledAfterChangeOf(nameof(LongitudinalDeadzone))]
         protected virtual void OnAfterLongitudinalDeadzoneChange()
         {
             Configuration.SetLongitudinalDeadzone(LongitudinalDeadzone);
