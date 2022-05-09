@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.2](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v2.0.1...v2.0.2) (2022-05-09)
+
+#### Miscellaneous Chores
+
+* **deps:** bump io.extendreality.zinnia.unity from 2.0.0 to 2.1.0 ([b0fcd07](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/b0fcd07c30e6b50a3a2b0dcf6822a98dbc53bbcf))
+  > Bumps [io.extendreality.zinnia.unity](https://github.com/ExtendRealityLtd/Zinnia.Unity) from 2.0.0 to 2.1.0. - [Release notes](https://github.com/ExtendRealityLtd/Zinnia.Unity/releases) - [Changelog](https://github.com/ExtendRealityLtd/Zinnia.Unity/blob/master/CHANGELOG.md) - [Commits](https://github.com/ExtendRealityLtd/Zinnia.Unity/compare/v2.0.0...v2.1.0)
+
 ### [2.0.1](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v2.0.0...v2.0.1) (2022-04-28)
 
 #### Miscellaneous Chores
