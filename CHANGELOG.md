@@ -1,5 +1,18 @@
 # Changelog
 
+### [2.0.13](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v2.0.12...v2.0.13) (2023-03-31)
+
+#### Bug Fixes
+
+* **Prefabs:** ensure deadzone types are disabled by default ([8ad5027](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/commit/8ad502728275412c688a075f8ccec8520d17963a))
+  > The Single DeadZone calculation and the Combined DeadZone calculation both need to start disabled otherwise their internal code can run on Enable due to a change in Zinnia how the `isActiveAndEnabled` check is now done.
+  > 
+  > Previously, it was using `behaviour.isActiveAndEnabled` which will not consider a script enabled until the `Start` method has been called so anything in `OnEnable` wouldn't trigger. But this logic is misleading so it was replaced with `gameObject.activeInHierarcy && this.enabled` which will report a component being enabled in the `OnEnable`.
+  > 
+  > This was then highlighting the error in this prefab as it was running code in the first frame because both components are enabled by default and then it was disabling the relevant component. But by that time the error had already occurred.
+  > 
+  > The fix is to ensure both calculation logic blocks are disabled by default and then the code will enabled the correct one and run the correct script without crashing into each other.
+
 ### [2.0.12](https://github.com/ExtendRealityLtd/Tilia.Input.CombinedActions.Unity/compare/v2.0.11...v2.0.12) (2023-03-28)
 
 #### Miscellaneous Chores
